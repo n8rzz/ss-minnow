@@ -1,0 +1,18 @@
+{
+  "name": "generator-ss-minnow",
+  "version": "0.0.0",
+  "description": "A simple project starter",
+  "homepage": "",
+  "author": {
+    "name": "Nate geslin",
+    "email": "teamtomkins23@gmail.com",
+    "url": ""
+  },
+  "files": [
+    "generators"
+  ],
+  "main": "generators/index.js",
+  "keywords": [
+    ""
+  ]
+}
