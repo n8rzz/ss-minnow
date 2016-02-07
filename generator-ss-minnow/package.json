@@ -14,5 +14,12 @@
   "main": "generators/index.js",
   "keywords": [
     ""
-  ]
+  ],
+  "dependencies": {
+    "chalk": "^1.1.1",
+    "path": "^0.12.7",
+    "yeoman-generator": "^0.22.5",
+    "yosay": "^1.1.0"
+  },
+  "devDependencies": {}
 }
