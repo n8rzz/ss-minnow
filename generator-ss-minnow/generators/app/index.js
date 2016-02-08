@@ -75,20 +75,22 @@ module.exports = yeoman.generators.Base.extend({
         //         { name: 'es5',               value: 'es5' },
         //     ]
         // },
-        // {
-        //     type: 'checkbox',
-        //     name: 'additionalFeatures',
-        //     label: 'Features',
-        //     message: 'Additional Packages to include',
-        //     choices: [
-        //         { name: 'lodash',          value: 'lodash' },
-        //         { name: 'jquery',          value: 'jquery' }
-        //     ]
-        // }
+        {
+            type: 'checkbox',
+            name: 'additionalFeatures',
+            label: 'Features',
+            message: 'Additional Packages to include',
+            choices: [
+                { name: 'lodash',          value: 'lodash' },
+                { name: 'jquery',          value: 'jquery' }
+            ]
+        }
     ];
 
     this.prompt(prompts, function (props) {
         this.props = props;
+
+        console.log('### props: ', this.props);
 
         done();
         }.bind(this));
@@ -151,11 +153,16 @@ module.exports = yeoman.generators.Base.extend({
         },
 
         packageJSON: function() {
+            var includeLodash;
+            (this.props.additionalFeatures.indexOf('lodash') >= 0) ? includeLodash = true : includeLodash = false;
+
+
             this.fs.copyTpl(
                 this.templatePath('_package.json'),
                 this.destinationPath('package.json'), {
                     name: this.props.name,
-                    version: this.props.version
+                    version: this.props.version,
+                    includeLodash: includeLodash
             });
         },
 
@@ -190,7 +197,7 @@ module.exports = yeoman.generators.Base.extend({
         '\n\n\n\t' +
         chalk.green('S.S. Minnow launched!') +
         '\n\n\t' +
-        chalk.yellow('Sail carefully!') +
+        'run ' + chalk.yellow('npm install') + ' once you\'re ready to get underway' +
         '\n\n\n' + chalk.yellow('######################################################################################');
 
 
