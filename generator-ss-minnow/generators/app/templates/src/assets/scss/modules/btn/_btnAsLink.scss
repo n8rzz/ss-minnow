@@ -1,0 +1,19 @@
+// ---------------------------------------------------------------------
+// Button As A Link
+// ---------------------------------------------------------------------
+// Rails requires some actions to be performed with buttons.  There are times
+// when a button should be styled as a plain old anchor link instead of a button.
+// These styles override the defaul button styles and present the button like an anchor
+
+.btnAsLink {
+    border: 0;
+    background: transparent;
+    font: inherit;
+    color: $COLOR_PRIMARY;
+    cursor: pointer;
+}
+
+.btnAsLink:hover {
+    color: $COLOR_SECONDARY;
+    text-decoration: underline;
+}

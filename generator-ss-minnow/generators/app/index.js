@@ -58,14 +58,21 @@ module.exports = yeoman.generators.Base.extend({
               return true;
           }
       },
+        {
+            type: 'confirm',
+            name: 'shouldUseBower'  ,
+            message: 'Do you need Bower for FE dependencies',
+            default: false
+        },
       {
           type: 'list',
           name: 'jsFlavor',
           label: 'Which flavor of Javascript?',
           message: 'Javascript flavor',
+          default: 0,
           choices: [
-          { name: 'es5',               value: 'es5' },
-          { name: 'es6',               value: 'es6' },
+              { name: 'es6',               value: 'es6' },
+              { name: 'es5',               value: 'es5' },
           ]
       },
       {
@@ -81,22 +88,93 @@ module.exports = yeoman.generators.Base.extend({
     ];
 
     this.prompt(prompts, function (props) {
-      this.props = props;
-      console.log('### PROMPTS ###: ', this.props);
-      // To access props later use this.props.someOption;
+        this.props = props;
+        console.log('### PROMPTS ###: ', this.props);
+        // To access props later use this.props.someOption;
 
-      done();
-    }.bind(this));
-  },
+        done();
+        }.bind(this));
+    },
 
-  writing: function () {
-    this.fs.copy(
-      this.templatePath('dummyfile.txt'),
-      this.destinationPath('dummyfile.txt')
-    );
-  },
+// configuring
 
-  // install: function () {
-  //   this.installDependencies();
-  // }
+    writing: {
+        //Copy the configuration files
+        config: function () {
+            if (this.props.shouldUseBower) {
+                this.fs.copyTpl(
+                    this.templatePath('_bower.json'),
+                    this.destinationPath('bower.json'), {
+                        name: this.props.name,
+                        version: this.props.version
+                });
+
+                this.fs.copy(
+                    this.templatePath('bowerrc'),
+                    this.destinationPath('.bowerrc')
+                );
+            }
+        },
+
+        editorConfig: function() {
+            this.fs.copy(
+                this.templatePath('editorconfig'),
+                this.destinationPath('.editorconfig')
+            );
+        },
+
+        gulpFile: function() {
+
+        },
+
+        git: function() {
+            this.fs.copy(
+                this.templatePath('gitignore'),
+                this.destinationPath('.gitignore')
+            );
+        },
+
+        packageJSON: function() {
+            this.fs.copyTpl(
+                this.templatePath('_package.json'),
+                this.destinationPath('package.json'), {
+                    name: this.props.name,
+                    version: this.props.version
+            });
+        },
+
+        scss: function() {
+            this.fs.copy(
+                this.templatePath('src/assets/scss'),
+                this.destinationPath('src/assets/scss')
+            );
+        },
+
+        scripts: function() {
+            this.fs.copy(
+                this.templatePath('src/assets/scripts'),
+                this.destinationPath('src/assets/scripts')
+            );
+        },
+    },
+
+    // install: function () {
+    //     this.installDependencies({
+    //         bower: false,
+    //         npm: true,
+    //         callback: function () {
+    //             console.log('npm packages installed successfully!');
+    //         }
+    //     });
+    // },
+
+    end: {
+        var operationIsCompleteMessage =
+        chalk.yellow('###########################################') +
+        '\n\n\n' + chalk.green('S. S. Minnow launched!') +
+        '\n\n\n' + chalk.yellow('Sail carefully!') +
+        chalk.yellow('###########################################');
+
+        this.log(operationIsCompleteMessage);
+    }
 });

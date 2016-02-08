@@ -1,0 +1,13 @@
+// ---------------------------------------------------------------------
+// Link
+// ---------------------------------------------------------------------
+.link,
+.link:visited {
+  color: $COLOR_PRIMARY;
+}
+
+.link:hover {
+    color: $COLOR_SECONDARY;
+    text-decoration: underline;
+    @include transition(all, .12s);
+}
