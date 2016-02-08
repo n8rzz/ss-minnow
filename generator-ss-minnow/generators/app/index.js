@@ -14,83 +14,81 @@ module.exports = yeoman.generators.Base.extend({
     ));
 
     var prompts = [
-      {
-          type: 'input',
-          name: 'title',
-          label: 'Name',
-          message: 'What is the name of your project?',
-          default: function() {
-              return path.basename(process.cwd());
-          }
-      },
-      {
-          type: 'input',
-          name: 'name',
-          label: 'Slug',
-          message: 'What would you like the slug to be?',
-          default: function(answers) {
-              var title = answers.title || 'client-project';
+        {
+            type: 'input',
+            name: 'title',
+            label: 'Name',
+            message: 'What is the name of your project?',
+                default: function() {
+                return path.basename(process.cwd());
+            }
+        },
+        {
+            type: 'input',
+            name: 'name',
+            label: 'Slug',
+            message: 'What would you like the slug to be?',
+            default: function(answers) {
+                var title = answers.title || 'client-project';
 
-              return title
-                  .toLowerCase()
-                  .replace(/[^a-z0-9]+/g, '-')
-                  .replace(/^\-+|\-+$/g, '');
-          }
-      },
-      {
-          type: 'input',
-          name: 'description',
-          label: 'Description',
-          message: 'One-line description',
-          default: ''
-      },
-      {
-          type: 'input',
-          name: 'version',
-          label: 'Version',
-          message: 'Version number (major.minor.patch)',
-          default: '1.0.0',
-          validate: function(answer) {
-              if (!(/^\d+\.\d+\.\d+([+\-]\S*)?$/).test(answer)) {
-                  return 'Must adhere to SemVer spec (major.minor.patch): http://semver.org/';
-              }
+                return title
+                    .toLowerCase()
+                    .replace(/[^a-z0-9]+/g, '-')
+                    .replace(/^\-+|\-+$/g, '');
+            }
+        },
+        {
+            type: 'input',
+            name: 'description',
+            label: 'Description',
+            message: 'One-line description',
+            default: ''
+        },
+        {
+            type: 'input',
+            name: 'version',
+            label: 'Version',
+            message: 'Version number (major.minor.patch)',
+            default: '1.0.0',
+            validate: function(answer) {
+                if (!(/^\d+\.\d+\.\d+([+\-]\S*)?$/).test(answer)) {
+                    return 'Must adhere to SemVer spec (major.minor.patch): http://semver.org/';
+                }
 
-              return true;
-          }
-      },
+                return true;
+            }
+        },
         {
             type: 'confirm',
             name: 'shouldUseBower'  ,
             message: 'Do you need Bower for FE dependencies',
             default: false
         },
-      {
-          type: 'list',
-          name: 'jsFlavor',
-          label: 'Which flavor of Javascript?',
-          message: 'Javascript flavor',
-          default: 0,
-          choices: [
-              { name: 'es6',               value: 'es6' },
-              { name: 'es5',               value: 'es5' },
-          ]
-      },
-      {
-          type: 'checkbox',
-          name: 'additionalFeatures',
-          label: 'Features',
-          message: 'Additional Packages to include',
-          choices: [
-              { name: 'lodash',          value: 'lodash' },
-              { name: 'jquery',          value: 'jquery' }
-          ]
-      }
+        // {
+        //     type: 'list',
+        //     name: 'jsFlavor',
+        //     label: 'Which flavor of Javascript?',
+        //     message: 'Javascript flavor',
+        //     default: 0,
+        //     choices: [
+        //         { name: 'es6',               value: 'es6' },
+        //         { name: 'es5',               value: 'es5' },
+        //     ]
+        // },
+        // {
+        //     type: 'checkbox',
+        //     name: 'additionalFeatures',
+        //     label: 'Features',
+        //     message: 'Additional Packages to include',
+        //     choices: [
+        //         { name: 'lodash',          value: 'lodash' },
+        //         { name: 'jquery',          value: 'jquery' }
+        //     ]
+        // }
     ];
 
     this.prompt(prompts, function (props) {
         this.props = props;
-        console.log('### PROMPTS ###: ', this.props);
-        // To access props later use this.props.someOption;
 
         done();
         }.bind(this));
@@ -124,7 +122,17 @@ module.exports = yeoman.generators.Base.extend({
         },
 
         gulpFile: function() {
+            this.fs.copyTpl(
+                this.templatePath('Gulpfile.js'),
+                this.destinationPath('Gulpfile.js'), {
+                    name: this.props.name,
+                    version: this.props.version
+            });
 
+            this.fs.copy(
+                this.templatePath('tools'),
+                this.destinationPath('tools')
+            );
         },
 
         git: function() {
@@ -132,6 +140,14 @@ module.exports = yeoman.generators.Base.extend({
                 this.templatePath('gitignore'),
                 this.destinationPath('.gitignore')
             );
+        },
+
+        html: function() {
+            this.fs.copyTpl(
+                this.templatePath('src/index.html'),
+                this.destinationPath('src/index.html'), {
+                    title: this.props.title
+            });
         },
 
         packageJSON: function() {
@@ -168,12 +184,15 @@ module.exports = yeoman.generators.Base.extend({
     //     });
     // },
 
-    end: {
+    end: function() {
         var operationIsCompleteMessage =
-        chalk.yellow('###########################################') +
-        '\n\n\n' + chalk.green('S. S. Minnow launched!') +
-        '\n\n\n' + chalk.yellow('Sail carefully!') +
-        chalk.yellow('###########################################');
+        chalk.yellow('######################################################################################') +
+        '\n\n\n\t' +
+        chalk.green('S.S. Minnow launched!') +
+        '\n\n\t' +
+        chalk.yellow('Sail carefully!') +
+        '\n\n\n' + chalk.yellow('######################################################################################');
+
 
         this.log(operationIsCompleteMessage);
     }

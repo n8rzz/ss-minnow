@@ -13,7 +13,7 @@
     "gulp-plumber": "^1.0.1",
     "gulp-sass": "^2.0.4",
     "jquery-browserify": "^1.8.1",
-    "jquery-mask-plugin": "^1.13.4",
+    "lodash": "4.2.1",
     "vinyl-source-stream": "^1.1.0"
   },
   "devDependencies": {
