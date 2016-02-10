@@ -2,15 +2,15 @@ var path = require('path');
 
 var ROOT = path.join(__dirname, './');
 
-var destDir = './public/assets';
+var destDir = './web/assets';
 var destStylesDir = path.join(destDir, 'styles');
 var destScriptsDir = path.join(destDir, 'scripts');
 
-var testDir = './src/spec';
+var testDir = './spec';
 
 var srcDir = './src';
-var srcScriptsDir = path.join(srcDir, 'scripts');
-var srcStylesDir = path.join(srcDir, 'scss');
+var srcScriptsDir = path.join(srcDir, '/assets/scripts');
+var srcStylesDir = path.join(srcDir, '/assets/scss');
 
 var options = {};
 
@@ -33,7 +33,9 @@ options.FILE = {
 
 options.GLOB = {
     SASS: path.join(options.DIR.SRC_STYLES, '**/*.scss'),
-    JS: path.join(options.DIR.SRC_SCRIPTS, '**/*.js')
+    JS: path.join(options.DIR.SRC_SCRIPTS, '**/*.js'),
+    MARKUP: path.join(options.DIR.SRC, '**/*.html'),
+    TEST: path.join(options.DIR.TEST, '**/*.js')
 };
 
 

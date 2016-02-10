@@ -10,7 +10,6 @@ export default class App {
     constructor() {
         this.isEnabled = false;
 
-
         return this._createChildren()
                    ._enable();
     }

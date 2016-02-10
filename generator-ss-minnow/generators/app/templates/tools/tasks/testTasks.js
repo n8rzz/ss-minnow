@@ -9,8 +9,13 @@ module.exports = function(gulp, config) {
     // JASMINE
     ////////////////////////////////////////////////////////////////////
     gulp.task('jasmine', function() {
-        return gulp.src(OPTIONS.DIR.TEST)
-            .pipe(jasmine());
+        return gulp.src(OPTIONS.GLOB.TEST)
+            .pipe(
+                jasmine({
+                    includeStackTrace: true,
+                    verbose: true
+                })
+            );
     });
 
 
@@ -21,6 +26,6 @@ module.exports = function(gulp, config) {
 
     gulp.task('watch:test', function() {
         gulp.watch(OPTIONS.GLOB.JS, ['build:scripts', 'test:jasmine']);
-        gulp.watch(OPTIONS.DIR.TEST, ['test:jasmine']);
+        gulp.watch(OPTIONS.GLOB.TEST, ['test:jasmine']);
     })
 };

@@ -1,10 +1,10 @@
 'use strict';
-var yeoman = require('yeoman-generator');
+var yeoman = require('yeoman-generator').Base;
 var chalk = require('chalk');
 var yosay = require('yosay');
 var path = require('path');
 
-module.exports = yeoman.generators.Base.extend({
+module.exports = yeoman.extend({
   prompting: function () {
     var done = this.async();
 
@@ -65,15 +65,10 @@ module.exports = yeoman.generators.Base.extend({
             default: false
         },
         // {
-        //     type: 'list',
-        //     name: 'jsFlavor',
-        //     label: 'Which flavor of Javascript?',
-        //     message: 'Javascript flavor',
-        //     default: 0,
-        //     choices: [
-        //         { name: 'es6',               value: 'es6' },
-        //         { name: 'es5',               value: 'es5' },
-        //     ]
+        //     type: 'confirm',
+        //     name: 'shouldUseScssBoilerplate'  ,
+        //     message: 'Would you like to scaffold an SCSS Boilerplate',
+        //     default: true
         // },
         {
             type: 'checkbox',
@@ -89,17 +84,14 @@ module.exports = yeoman.generators.Base.extend({
 
     this.prompt(prompts, function (props) {
         this.props = props;
-
-        console.log('### props: ', this.props);
-
         done();
-        }.bind(this));
+    }
+    .bind(this));
+
     },
 
-// configuring
 
     writing: {
-        //Copy the configuration files
         config: function () {
             if (this.props.shouldUseBower) {
                 this.fs.copyTpl(
@@ -114,6 +106,16 @@ module.exports = yeoman.generators.Base.extend({
                     this.destinationPath('.bowerrc')
                 );
             }
+
+            this.fs.copy(
+                this.templatePath('eslintrc'),
+                this.destinationPath('.eslintrc')
+            );
+
+            this.fs.copy(
+                this.templatePath('babelrc'),
+                this.destinationPath('.babelrc')
+            );
         },
 
         editorConfig: function() {
@@ -121,6 +123,7 @@ module.exports = yeoman.generators.Base.extend({
                 this.templatePath('editorconfig'),
                 this.destinationPath('.editorconfig')
             );
+
         },
 
         gulpFile: function() {
@@ -135,6 +138,7 @@ module.exports = yeoman.generators.Base.extend({
                 this.templatePath('tools'),
                 this.destinationPath('tools')
             );
+
         },
 
         git: function() {
@@ -142,6 +146,7 @@ module.exports = yeoman.generators.Base.extend({
                 this.templatePath('gitignore'),
                 this.destinationPath('.gitignore')
             );
+
         },
 
         html: function() {
@@ -154,8 +159,12 @@ module.exports = yeoman.generators.Base.extend({
 
         packageJSON: function() {
             var includeLodash;
-            (this.props.additionalFeatures.indexOf('lodash') >= 0) ? includeLodash = true : includeLodash = false;
 
+            if (this.props.additionalFeatures.indexOf('lodash') >= 0) {
+                includeLodash = true
+            } else {
+                includeLodash = false;
+            }
 
             this.fs.copyTpl(
                 this.templatePath('_package.json'),
@@ -179,6 +188,13 @@ module.exports = yeoman.generators.Base.extend({
                 this.destinationPath('src/assets/scripts')
             );
         },
+
+        spec: function() {
+            this.fs.copy(
+                this.templatePath('spec'),
+                this.destinationPath('spec')
+            );
+        }
     },
 
     // install: function () {
@@ -193,13 +209,19 @@ module.exports = yeoman.generators.Base.extend({
 
     end: function() {
         var operationIsCompleteMessage =
-        chalk.yellow('######################################################################################') +
+        '\n\n\n' +
+        chalk.gray('######################################################################################') +
         '\n\n\n\t' +
         chalk.green('S.S. Minnow launched!') +
         '\n\n\t' +
         'run ' + chalk.yellow('npm install') + ' once you\'re ready to get underway' +
-        '\n\n\n' + chalk.yellow('######################################################################################');
-
+        '\n\n\t\tAvailable Gulp Tasks:' +
+        '\n\t\t' + chalk.cyan('gulp build') +
+        '\n\t\t' + chalk.cyan('gulp watch') +
+        '\n\t\t' + chalk.cyan('gulp test') +
+        '\n\n\n' +
+        chalk.gray('######################################################################################') +
+        '\n\n\n';
 
         this.log(operationIsCompleteMessage);
     }
