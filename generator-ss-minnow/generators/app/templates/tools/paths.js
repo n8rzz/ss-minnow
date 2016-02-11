@@ -28,8 +28,9 @@ options.DIR = {
 };
 
 options.FILE = {
-    JS_SRC_CLIENT: path.join(srcScriptsDir, '/main.js')
+    JS_SRC_CLIENT: './src/assets/scripts/main.js'
 };
+
 
 options.GLOB = {
     SASS: path.join(options.DIR.SRC_STYLES, '**/*.scss'),
