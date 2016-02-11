@@ -2,7 +2,12 @@ module.exports = function(config) {
     config.set({
 
         basePath: '',
-        plugins: ['karma-jasmine', 'karma-browserify', 'karma-phantomjs-launcher'],
+        plugins: [
+          'karma-jasmine',
+          'karma-browserify',
+          'karma-phantomjs-launcher',
+          'karma-spec-reporter'
+        ],
         frameworks: ['jasmine', 'browserify'],
 
         files: [
@@ -22,6 +27,17 @@ module.exports = function(config) {
             transform: [ 'babelify' ]
         },
 
-        browsers: ['PhantomJS']
+        browsers: ['PhantomJS'],
+
+        logLevel: 'warn',
+
+        reporters: ['spec'],
+        specReporter: {
+            maxLogLines: 5,               // limit number of lines logged per test
+            suppressErrorSummary: true,   // do not print error summary
+            suppressFailed: false,        // do not print information about failed tests
+            suppressPassed: false,        // do not print information about passed tests
+            suppressSkipped: true         // do not print information about skipped tests
+        },
     });
 };
