@@ -77,7 +77,8 @@ module.exports = yeoman.extend({
             message: 'Additional Packages to include',
             choices: [
                 { name: 'lodash',          value: 'lodash' },
-                { name: 'jquery',          value: 'jquery' }
+                { name: 'jquery',          value: 'jquery' },
+                { name: 'tcomb',           value: 'tcomb' }
             ]
         }
     ];
@@ -108,13 +109,18 @@ module.exports = yeoman.extend({
             }
 
             this.fs.copy(
-                this.templatePath('eslintrc'),
-                this.destinationPath('.eslintrc')
+                this.templatePath('babelrc'),
+                this.destinationPath('.babelrc')
             );
 
             this.fs.copy(
-                this.templatePath('babelrc'),
-                this.destinationPath('.babelrc')
+                this.templatePath('karma.conf.js'),
+                this.destinationPath('karma.conf.js')
+            ),
+
+            this.fs.copy(
+                this.templatePath('eslintrc'),
+                this.destinationPath('.eslintrc')
             );
         },
 
@@ -159,11 +165,18 @@ module.exports = yeoman.extend({
 
         packageJSON: function() {
             var includeLodash;
+            var includeTcomb;
 
-            if (this.props.additionalFeatures.indexOf('lodash') >= 0) {
+            if (this.props.additionalFeatures.indexOf('lodash') !== -1) {
                 includeLodash = true
             } else {
                 includeLodash = false;
+            }
+
+            if (this.props.additionalFeatures.indexOf('tcomb') !== -1) {
+                includeTcomb = true
+            } else {
+                includeTcomb = false;
             }
 
             this.fs.copyTpl(
@@ -171,7 +184,8 @@ module.exports = yeoman.extend({
                 this.destinationPath('package.json'), {
                     name: this.props.name,
                     version: this.props.version,
-                    includeLodash: includeLodash
+                    includeLodash: includeLodash,
+                    includeTcomb: includeTcomb
             });
         },
 

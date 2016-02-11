@@ -1,6 +1,5 @@
 {
   "loose": "all",
   "_optional": ["es7.decorators", "es7.classProperties", "es7.objectRestSpread", "es7.exportExtensions"],
-  "presets": ["es2015"],
   "stage": 0
 }

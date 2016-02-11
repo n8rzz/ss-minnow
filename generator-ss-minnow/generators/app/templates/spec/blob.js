@@ -1,13 +1,13 @@
-var Blob = require('../src/assets/scripts/blob');
+import { blob } from '../src/assets/scripts/blob';
 
-describe('Blob', function() {
-    var blob;
+describe('Blob', () => {
+    var b;
 
-    beforeEach(function() {
-        blob = Blob();
+    beforeEach(() => {
+        b = blob();
     });
 
-    it('THEN calls the blob function', function() {
-        expect(blob).toBe(true);
+    it('THEN calls the blob function', () => {
+        expect(b).toBe(true);
     });
 });

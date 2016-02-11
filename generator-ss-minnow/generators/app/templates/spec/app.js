@@ -1,11 +1,13 @@
-var App = require('../src/assets/scripts/app');
+import App from '../src/assets/scripts/app';
 
-describe('App', function() {
-    beforeEach(function() {
-        var app = new App();
+describe('App', () => {
+    var app;
+
+    beforeEach(() => {
+        app = new App();
     });
 
-    it('THEN instantiates the App class', function() {
+    it('THEN instantiates the App class', () => {
         expect(app).toBeDefined();
     });
 });

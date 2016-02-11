@@ -15,6 +15,15 @@ export default class App {
     }
 
     /**
+     * @method _createChildren
+     * @private
+     * @chainable
+     */
+    _createChildren() {
+        return this;
+    }
+
+    /**
      * @method _enable
      * @private
      * @chainable
