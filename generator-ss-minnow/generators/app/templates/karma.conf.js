@@ -31,6 +31,8 @@ module.exports = function(config) {
 
         logLevel: 'warn',
 
+        singleRun : true,
+
         reporters: ['spec'],
         specReporter: {
             maxLogLines: 5,               // limit number of lines logged per test

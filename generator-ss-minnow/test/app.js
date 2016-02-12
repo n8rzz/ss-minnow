@@ -11,9 +11,16 @@ describe('generator-ss-minnow:app', function () {
       .on('end', done);
   });
 
-  it('creates files', function () {
+  it('creates config files', function () {
+    console.log('config files:');
     assert.file([
-      'dummyfile.txt'
+      'package.json',
+      '.bablerc',
+      '.editorconfig',
+      '.eslintrc',
+      '.gitignore',
+      'Gulpfile.js',
+      'karma.conf.js'
     ]);
   });
 });
