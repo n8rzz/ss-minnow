@@ -3,10 +3,11 @@ module.exports = function(config) {
 
         basePath: '',
         plugins: [
-          'karma-jasmine',
-          'karma-browserify',
-          'karma-phantomjs-launcher',
-          'karma-spec-reporter'
+            'karma-jasmine',
+            'karma-browserify',
+            'karma-phantomjs-launcher',
+            'karma-spec-reporter',
+            'karma-coverage'
         ],
         frameworks: ['jasmine', 'browserify'],
 
@@ -31,9 +32,7 @@ module.exports = function(config) {
 
         logLevel: 'warn',
 
-        singleRun : true,
-
-        reporters: ['spec'],
+        reporters: ['spec', 'coverage'],
         specReporter: {
             maxLogLines: 5,               // limit number of lines logged per test
             suppressErrorSummary: true,   // do not print error summary
@@ -41,5 +40,16 @@ module.exports = function(config) {
             suppressPassed: false,        // do not print information about passed tests
             suppressSkipped: true         // do not print information about skipped tests
         },
+
+        coverageReporter: {
+            type: 'text'
+        }
+
+        // coverageReporter: {
+        //     reporters: [
+        //         { type: 'html', dir: 'coverage/' },
+        //         { type: 'text' }
+        //     ]
+        // }
     });
 };
