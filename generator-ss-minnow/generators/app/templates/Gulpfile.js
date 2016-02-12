@@ -1,3 +1,4 @@
+/*eslint-disable */
 'use strict';
 
 var OPTIONS = require('./tools/paths');
@@ -9,7 +10,7 @@ var gulp = require('gulp');
 require('./tools/tasks/globalTasks')(gulp, OPTIONS);
 require('./tools/tasks/clientStylesTasks')(gulp, OPTIONS);
 require('./tools/tasks/clientScriptsTasks')(gulp, OPTIONS);
-require('./tools/tasks/testTasks')(gulp, OPTIONS);
+require('./tools/tasks/clientTestTasks')(gulp, OPTIONS);
 require('./tools/tasks/clientMarkupTasks')(gulp, OPTIONS);
 
 ////////////////////////////////////////////////////////////////////

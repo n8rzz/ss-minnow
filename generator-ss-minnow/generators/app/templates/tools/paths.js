@@ -1,3 +1,6 @@
+/*eslint-disable */
+'use strict';
+
 var path = require('path');
 
 var ROOT = path.join(__dirname, './');
