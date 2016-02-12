@@ -41,9 +41,9 @@ module.exports = function(config) {
             suppressSkipped: true         // do not print information about skipped tests
         },
 
-        coverageReporter: {
-            type: 'text'
-        }
+        // coverageReporter: {
+        //     type: 'text'
+        // }
 
         // coverageReporter: {
         //     reporters: [

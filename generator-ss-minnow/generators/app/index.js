@@ -229,6 +229,9 @@ module.exports = yeoman.extend({
         chalk.green('S.S. Minnow launched!') +
         '\n\n\t' +
         'run ' + chalk.yellow('npm install') + ' once you\'re ready to get underway' +
+        '\n\n\t\tAvailable NPM Tasks:' +
+        '\n\t\t' + chalk.cyan('npm run test') +
+        '\n' +
         '\n\n\t\tAvailable Gulp Tasks:' +
         '\n\t\t' + chalk.cyan('gulp build') +
         '\n\t\t' + chalk.cyan('gulp watch') +
