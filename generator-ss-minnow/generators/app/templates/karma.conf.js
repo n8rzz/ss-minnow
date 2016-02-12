@@ -19,7 +19,7 @@ module.exports = function(config) {
         exclude: [],
 
         preprocessors: {
-            'src/**/*.js': ['browserify'],
+            'src/**/*.js': ['browserify', 'coverage'],
             'spec/**/*.js': ['browserify']
         },
 
@@ -41,9 +41,10 @@ module.exports = function(config) {
             suppressSkipped: true         // do not print information about skipped tests
         },
 
-        // coverageReporter: {
-        //     type: 'text'
-        // }
+        // log coverage report in the console window
+        coverageReporter: {
+            type: 'text'
+        }
 
         // coverageReporter: {
         //     reporters: [
