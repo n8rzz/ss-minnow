@@ -5,7 +5,9 @@ module.exports = function(gulp, config) {
 
     var browserify = require('browserify');
     var babelify = require('babelify');
+    var sourcemaps = require('gulp-sourcemaps');
     var source = require('vinyl-source-stream');
+    var buffer = require('vinyl-buffer');
 
     ////////////////////////////////////////////////////////////////////
     // SASS
@@ -19,6 +21,9 @@ module.exports = function(gulp, config) {
             .transform(babelify)
             .bundle()
             .pipe(source('bundle.js'))
+            .pipe(buffer())
+            .pipe(sourcemaps.init({ loadMaps: true }))
+            .pipe(sourcemaps.write('./'))
             .pipe(gulp.dest(OPTIONS.DIR.DEST_SCRIPTS));
     });
 

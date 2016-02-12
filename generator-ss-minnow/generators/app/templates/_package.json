@@ -15,10 +15,12 @@
         "gulp-minify-css": "^1.2.1",
         "gulp-plumber": "^1.0.1",
         "gulp-sass": "^2.2.0",
+        "gulp-sourcemaps": "^1.6.0",
         "jquery-browserify": "^1.8.1", <% if (includeLodash) { %>
         "lodash": "4.2.1", <% } %> <% if (includeTcomb) { %>
         "tcomb": "^2.5.x", <% } %>
         "rimraf": "^2.5.1",
+        "vinyl-buffer": "^1.0.0",
         "vinyl-source-stream": "^1.1.0"
     },
     "devDependencies": {

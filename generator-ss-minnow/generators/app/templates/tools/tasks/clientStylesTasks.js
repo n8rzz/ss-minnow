@@ -11,11 +11,13 @@ module.exports = function(gulp, config) {
         var autoprefixer = require('gulp-autoprefixer');
 
         gulp.src(OPTIONS.GLOB.SASS)
+            .pipe(sourcemaps.init())
             .pipe(sass.sync().on('error', sass.logError))
             .pipe(autoprefixer({
-                    browsers: ['last 2 versions'],
-                    cascade: false
-                }))
+                browsers: ['last 2 versions'],
+                cascade: false
+            }))
+            .pipe(sourcemaps.write('./'))
             .pipe(gulp.dest(OPTIONS.DIR.DEST_STYLES));
     });
 
