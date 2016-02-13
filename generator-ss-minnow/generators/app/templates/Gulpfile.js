@@ -10,13 +10,11 @@ var gulp = require('gulp');
 require('./tools/tasks/globalTasks')(gulp, OPTIONS);
 require('./tools/tasks/clientStylesTasks')(gulp, OPTIONS);
 require('./tools/tasks/clientScriptsTasks')(gulp, OPTIONS);
-require('./tools/tasks/clientTestTasks')(gulp, OPTIONS);
 require('./tools/tasks/clientMarkupTasks')(gulp, OPTIONS);
 
 ////////////////////////////////////////////////////////////////////
 // GULP TASKS
 ////////////////////////////////////////////////////////////////////
 gulp.task('watch', ['watch:sass', 'watch:scripts', 'watch:markup']);
-gulp.task('test', ['test:jasmine']);
 gulp.task('build', ['clean', 'build:sass', 'build:scripts', 'copy:markup']);
 gulp.task('default', ['build']);

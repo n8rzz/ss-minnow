@@ -1,3 +1,6 @@
+/*eslint-disable */
+'use strict';
+
 module.exports = function(config) {
     config.set({
 
@@ -16,10 +19,14 @@ module.exports = function(config) {
             'spec/**/*.js'
         ],
 
+        browsers: ['PhantomJS'],
+
         exclude: [],
 
+        reporters: ['spec', 'coverage'],
+
         preprocessors: {
-            'src/**/*.js': ['browserify', 'coverage'],
+            '**src/**/*.js': ['browserify', 'coverage'],
             'spec/**/*.js': ['browserify']
         },
 
@@ -28,11 +35,8 @@ module.exports = function(config) {
             transform: [ 'babelify' ]
         },
 
-        browsers: ['PhantomJS'],
-
         logLevel: 'warn',
 
-        reporters: ['spec', 'coverage'],
         specReporter: {
             maxLogLines: 5,               // limit number of lines logged per test
             suppressErrorSummary: true,   // do not print error summary
@@ -41,16 +45,16 @@ module.exports = function(config) {
             suppressSkipped: true         // do not print information about skipped tests
         },
 
-        // log coverage report in the console window
-        coverageReporter: {
-            type: 'text'
-        }
-
         // coverageReporter: {
-        //     reporters: [
-        //         { type: 'html', dir: 'coverage/' },
-        //         { type: 'text' }
-        //     ]
+        //     type: 'text'
         // }
+
+        coverageReporter: {
+            reporters: [
+                { type: 'html', dir: 'coverage/' },
+                { type: 'text' },
+                { type: 'json' }
+            ]
+        }
     });
 };
