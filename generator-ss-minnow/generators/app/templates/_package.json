@@ -5,7 +5,7 @@
     "dependencies": {
         "babel": "^5.8.23",
         "babelify": "~5.0.3",
-        "browserify": "^9.0.3",
+        "browserify": "^10.2.1",
         "gulp": "^3.9.x",
         "gulp-autoprefixer": "^3.1.0",
         "gulp-jasmine": "^2.2.1",
@@ -22,18 +22,21 @@
     },
     "devDependencies": {
         "babel-eslint": "^4.1.8",
+        "browserify-istanbul": "^0.2.1",
         "eslint": "^1.7.3",
         "eslint-config-airbnb": "0.0.7",
         "eslint-plugin-react": "3.2.x",
-        "karma": "~0.12.31",
+        "isparta": "^2.0.0",
+        "karma": "^0.12.31",
         "karma-babel-preprocessor": "^6.0.1",
         "karma-browserify": "~3.0.2",
-        "karma-coverage": "^0.5.3",
+        "karma-coverage": "douglasduteil/karma-coverage#next",
         "karma-jasmine": "~0.3.5",
         "karma-phantomjs-launcher": "^1.0.x",
         "karma-spec-reporter": "0.0.24"
     },
     "scripts": {
-        "test": "karma start"
+        "test": "karma start --single-run",
+        "coverage": "karma start karma-coverage.conf.js --single-run"
     }
 }

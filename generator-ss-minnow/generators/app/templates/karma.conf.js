@@ -9,25 +9,24 @@ module.exports = function(config) {
             'karma-jasmine',
             'karma-browserify',
             'karma-phantomjs-launcher',
-            'karma-spec-reporter',
-            'karma-coverage'
+            'karma-spec-reporter'
         ],
         frameworks: ['jasmine', 'browserify'],
 
         files: [
             'src/**/*.js',
-            'spec/**/*.js'
+            'spec/**/*.spec.js'
         ],
 
         browsers: ['PhantomJS'],
 
         exclude: [],
 
-        reporters: ['spec', 'coverage'],
+        reporters: ['spec'],
 
         preprocessors: {
-            '**src/**/*.js': ['browserify', 'coverage'],
-            'spec/**/*.js': ['browserify']
+            '**src/**/*.js': ['browserify'],
+            'spec/**/*.spec.js': ['browserify']
         },
 
         browserify: {
@@ -43,18 +42,6 @@ module.exports = function(config) {
             suppressFailed: false,        // do not print information about failed tests
             suppressPassed: false,        // do not print information about passed tests
             suppressSkipped: true         // do not print information about skipped tests
-        },
-
-        // coverageReporter: {
-        //     type: 'text'
-        // }
-
-        coverageReporter: {
-            reporters: [
-                { type: 'html', dir: 'coverage/' },
-                { type: 'text' },
-                { type: 'json' }
-            ]
         }
     });
 };

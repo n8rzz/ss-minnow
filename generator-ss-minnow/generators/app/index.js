@@ -10,7 +10,7 @@ module.exports = yeoman.extend({
 
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the ' + chalk.red('generator-ss-minnow') + ' generator!'
+        'Welcome to the ' + chalk.red('generator-ss-minnow') + ' generator!'
     ));
 
     var prompts = [
@@ -64,12 +64,6 @@ module.exports = yeoman.extend({
             message: 'Do you need Bower for FE dependencies',
             default: false
         },
-        // {
-        //     type: 'confirm',
-        //     name: 'shouldUseScssBoilerplate'  ,
-        //     message: 'Would you like to scaffold an SCSS Boilerplate',
-        //     default: true
-        // },
         {
             type: 'checkbox',
             name: 'additionalFeatures',
@@ -77,14 +71,19 @@ module.exports = yeoman.extend({
             message: 'Additional Packages to include',
             choices: [
                 { name: 'lodash',          value: 'lodash' },
-                { name: 'jquery',          value: 'jquery' },
-                { name: 'tcomb',           value: 'tcomb' }
+                { name: 'tcomb',           value: 'tcomb' },
+                { name: 'jquery',          value: 'jquery' }
             ]
         }
     ];
 
     this.prompt(prompts, function (props) {
         this.props = props;
+
+        this.hasLodash = '';
+        this.hasTcomb = '';
+        this.hasJquery = '';
+
         done();
     }
     .bind(this));
@@ -116,6 +115,11 @@ module.exports = yeoman.extend({
             this.fs.copy(
                 this.templatePath('karma.conf.js'),
                 this.destinationPath('karma.conf.js')
+            ),
+
+            this.fs.copy(
+                this.templatePath('karma-coverage.conf.js'),
+                this.destinationPath('karma-coverage.conf.js')
             ),
 
             this.fs.copy(
