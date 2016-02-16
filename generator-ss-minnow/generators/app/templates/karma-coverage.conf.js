@@ -8,12 +8,7 @@ module.exports = function(config) {
     config.set({
 
         basePath: './',
-        plugins: [
-            'karma-jasmine',
-            'karma-browserify',
-            'karma-phantomjs-launcher',
-            'karma-coverage'
-        ],
+
         frameworks: ['browserify', 'jasmine'],
 
         files: [
@@ -32,6 +27,7 @@ module.exports = function(config) {
             transform: [
                 'babelify',
                 istanbul({
+                    instrumenter: isparta,
                     ignore: ['**/node_modules/**', '**/spec/**'],
                     defaultIgnore: true
                 })
@@ -42,17 +38,15 @@ module.exports = function(config) {
 
         coverageReporter: {
             dir: './docs/coverage',
-            instrumenters: { isparta: isparta },
-            // instrumenter: {
-            //     '**/*.js': 'isparta'
-            // },
             reporters: [
-                // { type: 'html', subdir: '.' },
+                { type: 'html', subdir: '.' },
                 { type: 'text' }
             ]
         },
 
         logLevel: 'warn',
+
+        port: 9877,
 
         browsers: ['PhantomJS'],
     });

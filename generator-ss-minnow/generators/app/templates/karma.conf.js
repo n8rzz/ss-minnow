@@ -5,12 +5,7 @@ module.exports = function(config) {
     config.set({
 
         basePath: '',
-        plugins: [
-            'karma-jasmine',
-            'karma-browserify',
-            'karma-phantomjs-launcher',
-            'karma-spec-reporter'
-        ],
+
         frameworks: ['jasmine', 'browserify'],
 
         files: [
@@ -33,6 +28,8 @@ module.exports = function(config) {
             debug: true,
             transform: [ 'babelify' ]
         },
+
+        autoWatchBatchDelay: 250,
 
         logLevel: 'warn',
 
