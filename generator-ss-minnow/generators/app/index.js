@@ -111,6 +111,11 @@ module.exports = yeoman.extend({
             );
 
             this.fs.copy(
+                this.templatePath('eslintignore'),
+                this.destinationPath('.eslintignore')
+            );
+
+            this.fs.copy(
                 this.templatePath('karma.conf.js'),
                 this.destinationPath('karma.conf.js')
             ),
