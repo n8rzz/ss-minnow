@@ -235,17 +235,17 @@ module.exports = yeoman.extend({
         '\n\n\t----------------------------------------' +
         '\n\t\t' + chalk.green('S.S. Minnow launched!') +
         '\n\t----------------------------------------' +
-        '\n\n\t' + 'Once you\'re ready to get underway' +
+        '\n\n' +
         '\n\n\trun ' + chalk.green('npm install') + ' to install dependencies' +
         '\n\tand ' + chalk.green('gulp build') + ' to start an initial build of the project' +
         '\n\n\t\tAvailable NPM Tasks:' +
-        '\n\t\t' + chalk.cyan('npm run test') + chalk.gray('- run tests') +
-        '\n\t\t' + chalk.cyan('npm run coverage') + chalk.gray('- generate coverage reports') +
+        '\n\t\t' + chalk.cyan('npm run test') + chalk.gray(' - run tests') +
+        '\n\t\t' + chalk.cyan('npm run coverage') + chalk.gray(' - generate coverage reports') +
         '\n' +
         '\n\n\t\tAvailable Gulp Tasks:' +
         '\n\t\t' + chalk.cyan('gulp build') +
         '\n\t\t' + chalk.cyan('gulp watch') +
-        '\n\t\t' + chalk.cyan('gulp docs') +
+        '\n\t\t' + chalk.cyan('gulp docs') + chalk.gray(' - create server to serve coverage reports') +
         '\n\n\n' +
         chalk.gray('######################################################################################') +
         '\n\n\n';

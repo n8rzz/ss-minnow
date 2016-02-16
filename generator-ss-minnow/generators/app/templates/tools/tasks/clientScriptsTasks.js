@@ -8,6 +8,7 @@ module.exports = function(gulp, config) {
     var sourcemaps = require('gulp-sourcemaps');
     var source = require('vinyl-source-stream');
     var buffer = require('vinyl-buffer');
+    var eslint = require('gulp-eslint');
 
     ////////////////////////////////////////////////////////////////////
     // SASS
@@ -28,9 +29,23 @@ module.exports = function(gulp, config) {
     });
 
     ////////////////////////////////////////////////////////////////////
+    // ESLINT
+    ////////////////////////////////////////////////////////////////////
+    gulp.task('lint', function() {
+        console.log(OPTIONS.FILE.JS_SRC_CLIENT);
+        gulp.src([OPTIONS.FILE.JS_SRC_CLIENT])
+            .pipe(eslint({
+                useEslintrc: true
+            }))
+            .pipe(eslint.format())
+    });
+
+
+    ////////////////////////////////////////////////////////////////////
     // TASKS
     ////////////////////////////////////////////////////////////////////
     gulp.task('build:scripts', ['babel']);
+    gulp.task('lint:scripts', ['lint']);
 
     gulp.task('watch:scripts', function() {
         gulp.watch(OPTIONS.GLOB.JS, ['babel']);
