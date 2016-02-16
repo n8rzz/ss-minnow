@@ -245,6 +245,7 @@ module.exports = yeoman.extend({
         '\n\n\t\tAvailable Gulp Tasks:' +
         '\n\t\t' + chalk.cyan('gulp build') +
         '\n\t\t' + chalk.cyan('gulp watch') +
+        '\n\t\t' + chalk.cyan('gulp docs') +
         '\n\n\n' +
         chalk.gray('######################################################################################') +
         '\n\n\n';

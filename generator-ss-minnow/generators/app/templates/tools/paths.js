@@ -4,6 +4,9 @@ var path = require('path');
 
 var ROOT = path.join(__dirname, './');
 
+var docsDir = './docs';
+var docsCoverageDir = path.join(docsDir, 'coverage');
+
 var destFolder = './web';
 var destDir = './web/assets';
 var destStylesDir = path.join(destDir, 'styles');
@@ -34,6 +37,9 @@ options.DIR = {
     DEST_STYLES: destStylesDir,
     DEST_SCRIPTS: destScriptsDir,
     DEST_MEDIA: destMedia,
+
+    DOCS: docsDir,
+    DOCS_COVERAGE: docsCoverageDir,
 
     TEST: testDir
 };
