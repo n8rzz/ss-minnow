@@ -5,6 +5,7 @@ var path = require('path');
 var ROOT = path.join(__dirname, './');
 
 var docsDir = './docs';
+var docsApiDir = path.join(docsDir, 'api');
 var docsCoverageDir = path.join(docsDir, 'coverage');
 
 var destFolder = './web';
@@ -39,6 +40,7 @@ options.DIR = {
     DEST_MEDIA: destMedia,
 
     DOCS: docsDir,
+    DOCS_API: docsApiDir,
     DOCS_COVERAGE: docsCoverageDir,
 
     TEST: testDir

@@ -32,7 +32,6 @@ module.exports = function(gulp, config) {
     // ESLINT
     ////////////////////////////////////////////////////////////////////
     gulp.task('lint', function() {
-        console.log(OPTIONS.FILE.JS_SRC_CLIENT);
         gulp.src([OPTIONS.FILE.JS_SRC_CLIENT])
             .pipe(eslint({
                 useEslintrc: true

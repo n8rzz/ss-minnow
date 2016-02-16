@@ -218,16 +218,6 @@ module.exports = yeoman.extend({
         }
     },
 
-    // install: function () {
-    //     this.installDependencies({
-    //         bower: false,
-    //         npm: true,
-    //         callback: function () {
-    //             console.log('npm packages installed successfully!');
-    //         }
-    //     });
-    // },
-
     end: function() {
         var operationIsCompleteMessage =
         '\n\n\n' +
@@ -235,17 +225,17 @@ module.exports = yeoman.extend({
         '\n\n\t----------------------------------------' +
         '\n\t\t' + chalk.green('S.S. Minnow launched!') +
         '\n\t----------------------------------------' +
-        '\n\n' +
         '\n\n\trun ' + chalk.green('npm install') + ' to install dependencies' +
-        '\n\tand ' + chalk.green('gulp build') + ' to start an initial build of the project' +
-        '\n\n\t\tAvailable NPM Tasks:' +
-        '\n\t\t' + chalk.cyan('npm run test') + chalk.gray(' - run tests') +
-        '\n\t\t' + chalk.cyan('npm run coverage') + chalk.gray(' - generate coverage reports') +
+        '\n\tthen ' + chalk.green('gulp build') + ' to start an initial build of the project' +
+        '\n\n\n\tAvailable NPM Tasks:' +
+        '\n\t' + chalk.cyan('npm run test') + chalk.gray(' - run tests') +
+        '\n\t' + chalk.cyan('npm run coverage') + chalk.gray(' - generate coverage reports') +
         '\n' +
-        '\n\n\t\tAvailable Gulp Tasks:' +
-        '\n\t\t' + chalk.cyan('gulp build') +
-        '\n\t\t' + chalk.cyan('gulp watch') +
-        '\n\t\t' + chalk.cyan('gulp docs') + chalk.gray(' - create server to serve coverage reports') +
+        '\n\n\tAvailable Gulp Tasks:' +
+        '\n\t' + chalk.cyan('gulp build') +
+        '\n\t' + chalk.cyan('gulp watch') +
+        '\n\t' + chalk.cyan('gulp docs') + chalk.gray(' - create api docs') +
+        '\n\t' + chalk.cyan('gulp docs') + chalk.gray(' - serve coverage reports') +
         '\n\n\n' +
         chalk.gray('######################################################################################') +
         '\n\n\n';
