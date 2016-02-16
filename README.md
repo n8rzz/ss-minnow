@@ -1,4 +1,4 @@
-# generator-ss-minnow [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# generator-ss-minnow [![NPM version][npm-image]][npm-url] [![Dependency Status][daviddm-image]][daviddm-url]
 > A simple project starter
 
 ## Installation
@@ -27,7 +27,5 @@ MIT © [Nate geslin]()
 
 [npm-image]: https://badge.fury.io/js/generator-ss-minnow.svg
 [npm-url]: https://npmjs.org/package/generator-ss-minnow
-[travis-image]: https://travis-ci.org/n8rzz/generator-ss-minnow.svg?branch=master
-[travis-url]: https://travis-ci.org/n8rzz/generator-ss-minnow
 [daviddm-image]: https://david-dm.org/n8rzz/generator-ss-minnow.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/n8rzz/generator-ss-minnow
