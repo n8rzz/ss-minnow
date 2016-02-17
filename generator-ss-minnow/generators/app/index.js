@@ -4,6 +4,16 @@ var chalk = require('chalk');
 var yosay = require('yosay');
 var path = require('path');
 
+/**
+ * @method hasMod
+ * @param  {String} mod
+ * @param  {object} props
+ * @return {Boolean}
+ */
+var hasMod = function hasMod(mod, props) {
+    return props.additionalFeatures.indexOf(mod) !== -1;
+};
+
 module.exports = yeoman.extend({
   prompting: function () {
     var done = this.async();
@@ -78,9 +88,9 @@ module.exports = yeoman.extend({
 
     this.prompt(prompts, function (props) {
         this.props = props;
+        this.hasLodash = hasMod('lodash', props);
+        this.hasTcomb = hasMod('tcomb', props);
 
-        this.hasLodash = '';
-        this.hasTcomb = '';
 
         done();
     }
@@ -171,28 +181,13 @@ module.exports = yeoman.extend({
         },
 
         packageJSON: function() {
-            var includeLodash;
-            var includeTcomb;
-
-            if (this.props.additionalFeatures.indexOf('lodash') !== -1) {
-                includeLodash = true
-            } else {
-                includeLodash = false;
-            }
-
-            if (this.props.additionalFeatures.indexOf('tcomb') !== -1) {
-                includeTcomb = true
-            } else {
-                includeTcomb = false;
-            }
-
             this.fs.copyTpl(
                 this.templatePath('_package.json'),
                 this.destinationPath('package.json'), {
                     name: this.props.name,
                     version: this.props.version,
-                    includeLodash: includeLodash,
-                    includeTcomb: includeTcomb
+                    includeLodash: this.hasLodash,
+                    includeTcomb: this.hasTcomb
             });
         },
 
