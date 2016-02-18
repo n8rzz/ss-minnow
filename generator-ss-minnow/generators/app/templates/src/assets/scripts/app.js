@@ -2,8 +2,6 @@ import $ from 'jquery-browserify';
 import _ from 'lodash';
 
 /**
- * Entry point for the application
- *
  * @class App
  */
 export default class App {
