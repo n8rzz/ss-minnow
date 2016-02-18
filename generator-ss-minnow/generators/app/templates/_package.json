@@ -40,7 +40,7 @@
     },
     "scripts": {
         "test": "karma start --single-run",
-        "test:continuous": "karma start --auto-watch",
+        "test:tdd": "karma start --auto-watch",
         "coverage": "karma start karma-coverage.conf.js --single-run"
     }
 }

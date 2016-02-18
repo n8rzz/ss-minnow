@@ -20,6 +20,7 @@ yo ss-minnow
 #### NPM Tasks:
 ```
     npm run test
+    npm run test:tdd
     npm run coverage
 ```
 
