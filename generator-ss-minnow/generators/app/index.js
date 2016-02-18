@@ -230,7 +230,7 @@ module.exports = yeoman.extend({
         '\n\t' + chalk.cyan('gulp build') +
         '\n\t' + chalk.cyan('gulp watch') +
         '\n\t' + chalk.cyan('gulp docs') + chalk.gray(' - create api docs') +
-        '\n\t' + chalk.cyan('gulp docs') + chalk.gray(' - serve coverage reports') +
+        '\n\t' + chalk.cyan('gulp coverage') + chalk.gray(' - serve coverage reports') +
         '\n\n\n' +
         chalk.gray('######################################################################################') +
         '\n\n\n';

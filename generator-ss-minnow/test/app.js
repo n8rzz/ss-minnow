@@ -4,23 +4,25 @@ var assert = require('yeoman-assert');
 var helpers = require('yeoman-generator').test;
 
 describe('generator-ss-minnow:app', function () {
-  before(function (done) {
-    helpers.run(path.join(__dirname, '../generators/app'))
-      .withOptions({someOption: true})
-      .withPrompts({someAnswer: true})
-      .on('end', done);
-  });
+    beforeEach(function (done) {
+        helpers.run(path.join(__dirname, '../generators/app'))
+            .withOptions([
+                { tcomb: true },
+                { lodash: true }
+            ])
+            .withPrompts({someAnswer: true})
+    .on('end', done);
+    });
 
-  it('creates config files', function () {
-    console.log('config files:');
-    assert.file([
-      'package.json',
-      '.bablerc',
-      '.editorconfig',
-      '.eslintrc',
-      '.gitignore',
-      'Gulpfile.js',
-      'karma.conf.js'
-    ]);
-  });
+    it('creates config files', function () {
+        assert.file([
+            'package.json',
+            '.bablerc',
+            '.editorconfig',
+            '.eslintrc',
+            '.gitignore',
+            'Gulpfile.js',
+            'karma.conf.js'
+        ]);
+    });
 });

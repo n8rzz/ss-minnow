@@ -17,8 +17,51 @@ yo ss-minnow
 ```
 
 ## Available Tasks
+#### NPM Tasks:
+```
+    npm run test
+    npm run coverage
+```
+
+#### Gulp Tasks:
+```
+    gulp build
+    gulp watch
+    gulp docs
+    gulp coverage
+```
 
 ## Directory Layout
+
+```
+.
+├── generators/
+│   └── app/
+│       └── templates/
+│           └── spec/
+│           └── src/
+│           └── tools/
+│           └── _bower.json
+│           └── bowerrc
+│           └── editorconfig
+│           └── eslintignore
+│           └── eslintrc
+│           └── gitignore
+│           └── Gulpfile.js
+│           └── karma-coverage.conf.js
+│           └── karma.conf.js
+│       └── index.js
+├── .editorconfig
+├── .eslinignore
+├── .eslintrc
+├── .gitignore
+├── .travis.yml
+├── .yo-rc.json
+├── package.json
+├── gulpfile.js
+└── test/
+    └── app.js
+```
 
 ## Support
 

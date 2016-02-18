@@ -8,7 +8,7 @@ var istanbul = require('gulp-istanbul');
 var plumber = require('gulp-plumber');
 
 gulp.task('static', function () {
-  return gulp.src('generator-ss-minnow/**/*.js')
+  return gulp.src('**/*.js')
     .pipe(excludeGitignore())
     .pipe(eslint())
     .pipe(eslint.format())
@@ -19,6 +19,7 @@ gulp.task('pre-test', function () {
   return gulp.src('generators/**/*.js')
     .pipe(excludeGitignore())
     .pipe(istanbul({
+      ignore: ['**/node_modules/**', '**/templates/**'],
       includeUntested: true
     }))
     .pipe(istanbul.hookRequire());
@@ -43,5 +44,4 @@ gulp.task('watch', function () {
   gulp.watch(['generators/**/*.js', 'test/**'], ['test']);
 });
 
-gulp.task('prepublish', ['nsp']);
 gulp.task('default', ['static', 'test']);
