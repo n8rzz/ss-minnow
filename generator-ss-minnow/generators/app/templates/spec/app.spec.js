@@ -1,3 +1,4 @@
+/* global define, it, describe, before, beforeEach, after, afterEach, expect, spyOn, xdescribe, xit */
 import App from '../src/assets/scripts/app';
 
 describe('App class', () => {

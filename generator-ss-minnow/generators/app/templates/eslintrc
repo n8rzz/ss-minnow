@@ -9,7 +9,6 @@
         "comma-dangle": [2, "never"],
         "id-length": [1, {"min": 1}],
         "indent": [2, 4, {"SwitchCase": 1}],
-        "keyword-spacing": 2,
         "react/display-name": 2,
         "react/sort-comp": [0, {         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md
             "order": [
