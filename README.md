@@ -20,7 +20,6 @@ yo ss-minnow
 #### NPM Tasks:
 ```
     npm run test
-    npm run test:tdd
     npm run coverage
 ```
 
@@ -28,8 +27,9 @@ yo ss-minnow
 ```
     gulp build
     gulp watch
+    gulp tdd - run tests onChange for only the modified test file
     gulp docs
-    gulp coverage
+    gulp coverage - generate test coverage reports
 ```
 
 ## Directory Layout

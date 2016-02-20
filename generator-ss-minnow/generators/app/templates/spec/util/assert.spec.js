@@ -1,3 +1,4 @@
+/* global define, it, describe, before, beforeEach, after, afterEach, expect, spyOn, xdescribe, xit */
 import * as assert from '../../src/assets/scripts/util/assert.js';
 
 // const msg = 'An assertion message';
