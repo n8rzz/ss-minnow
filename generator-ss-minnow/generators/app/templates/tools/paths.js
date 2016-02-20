@@ -56,7 +56,7 @@ options.GLOB = {
     DEST: path.join(options.DIR.DEST_FOLDER, '**/*'),
     SASS: path.join(options.DIR.SRC_STYLES, '**/*.scss'),
     JS: path.join(options.DIR.SRC_SCRIPTS, '**/*.js'),
-    MARKUP: path.join(options.DIR.SRC, '**/*.html'),
+    MARKUP: path.join(options.DIR.SRC_FOLDER, '**/*.html'),
     TEST: path.join(options.DIR.TEST, '**/*.js')
 };
 

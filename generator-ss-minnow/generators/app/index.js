@@ -229,14 +229,16 @@ module.exports = yeoman.extend({
         '\n\n\trun ' + chalk.green('npm install') + ' to install dependencies' +
         '\n\tthen ' + chalk.green('gulp build') + ' to start an initial build of the project' +
         '\n\n\n\tAvailable NPM Tasks:' +
-        '\n\t' + chalk.cyan('npm run test') + chalk.gray(' - run tests') +
-        '\n\t' + chalk.cyan('npm run coverage') + chalk.gray(' - generate coverage reports') +
+        '\n\t' + chalk.yellow('npm run test') + chalk.gray('- [alias:') + chalk.cyan(' gulp test') + chalk.gray('] - run tests') +
+        '\n\t' + chalk.yellow('npm run coverage') + chalk.gray('- [alias:') + chalk.cyan(' gulp coverage') + chalk.gray('] - generate coverage reports') +
         '\n' +
         '\n\n\tAvailable Gulp Tasks:' +
-        '\n\t' + chalk.cyan('gulp build') +
-        '\n\t' + chalk.cyan('gulp watch') +
-        '\n\t' + chalk.cyan('gulp docs') + chalk.gray(' - create api docs') +
-        '\n\t' + chalk.cyan('gulp coverage') + chalk.gray(' - serve coverage reports') +
+        '\n\t' + chalk.yellow('gulp build') +
+        '\n\t' + chalk.yellow('gulp watch') +
+        '\n\t' + chalk.yellow('gulp test') + chalk.gray(' - run entire test suite') +
+        '\n\t' + chalk.yellow('gulp tdd') + chalk.gray(' - run tests onChange for only the modified test file') +
+        '\n\t' + chalk.yellow('gulp docs') + chalk.gray(' - create api docs') +
+        '\n\t' + chalk.yellow('gulp coverage') + chalk.gray(' - generate coverage reports') +
         '\n\n\n' +
         chalk.gray('######################################################################################') +
         '\n\n\n';

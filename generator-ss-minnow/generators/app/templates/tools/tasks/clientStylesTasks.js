@@ -14,7 +14,9 @@ module.exports = function(gulp, config) {
 
         gulp.src(OPTIONS.GLOB.SASS)
             .pipe(sourcemaps.init())
-            .pipe(sass.sync().on('error', sass.logError))
+            .pipe(
+                sass()
+                .on('error', sass.logError))
             .pipe(autoprefixer({
                 browsers: ['last 2 versions'],
                 cascade: false

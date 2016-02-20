@@ -9,7 +9,7 @@ module.exports = function(gulp, config) {
     gulp.task('copyHtml', function() {
       // copy any html files to web/
       gulp.src(OPTIONS.GLOB.MARKUP)
-          .pipe(gulp.dest(OPTIONS.DIR.DEST));
+          .pipe(gulp.dest(OPTIONS.DIR.DEST_FOLDER));
     });
 
     ////////////////////////////////////////////////////////////////////
