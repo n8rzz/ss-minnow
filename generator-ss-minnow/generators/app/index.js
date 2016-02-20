@@ -52,7 +52,7 @@ module.exports = yeoman.extend({
             name: 'description',
             label: 'Description',
             message: 'One-line description',
-            default: ''
+            default: 'A sentence to hold the place of a project description'
         },
         {
             type: 'input',
@@ -136,6 +136,11 @@ module.exports = yeoman.extend({
             ),
 
             this.fs.copy(
+                this.templatePath('karma-tdd.conf.js'),
+                this.destinationPath('karma-tdd.conf.js')
+            ),
+
+            this.fs.copy(
                 this.templatePath('eslintrc'),
                 this.destinationPath('.eslintrc')
             );
@@ -186,6 +191,7 @@ module.exports = yeoman.extend({
                 this.destinationPath('package.json'), {
                     name: this.props.name,
                     version: this.props.version,
+                    description: this.props.description,
                     includeLodash: this.hasLodash,
                     includeTcomb: this.hasTcomb
             });

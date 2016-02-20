@@ -16,20 +16,29 @@ module.exports = function(config) {
         ],
 
         preprocessors: {
-            'src/**/*.js': ['browserify', 'coverage'],
+            'src/**/*.js': ['browserify', 'sourcemap', 'coverage'],
             'spec/**/*.spec.js': ['browserify']
+        },
+
+        babelPreprocessor: {
+            options: {
+                sourceMap: 'inline'
+            },
+            sourceFileName: function(file) {
+                return file.originalPath;
+            }
         },
 
         browserify: {
             debug: true,
             bundleDealy: 1000,
             transform: [
-                'babelify',
                 istanbul({
                     instrumenter: isparta,
                     ignore: ['**/node_modules/**', '**/spec/**'],
                     defaultIgnore: true
-                })
+                }),
+                'babelify'
             ]
         },
 
