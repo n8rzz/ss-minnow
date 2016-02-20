@@ -1,7 +1,7 @@
 /* global define, it, describe, before, beforeEach, after, afterEach, expect, spyOn, xdescribe, xit */
 import * as assert from '../../src/assets/scripts/util/assert.js';
 
-// const msg = 'An assertion message';
+const msg = 'An assertion message';
 let UNDEFINED;
 const DEFINED = 'defined';
 const STRING = 'string';
@@ -9,6 +9,35 @@ const NUMBER = 33;
 const OBJECT = { k: 'val' };
 const ARRAY = [1, 2, 3, 4];
 
+describe('Assert assertCondition helper', () => {
+    it('THEN throws if the condition is false', () => {
+        expect(() => {
+            assert.assertCondition(typeof NUMBER === 'undefined', msg);
+        }).toThrow(new TypeError(msg));
+    });
+
+    it('THEN does not throw if the condition is true', () => {
+        expect(() => {
+            assert.assertCondition(typeof NUMBER === 'number', msg);
+        }).not.toThrow(new TypeError(msg));
+    });
+});
+
+describe('Assert assertParameter helper', () => {
+    const parameterErrorMessage = `Error with parameter: ${msg}`;
+
+    it('THEN throws if the condition is false', () => {
+        expect(() => {
+            assert.assertParameter(typeof NUMBER === 'undefined', msg);
+        }).toThrow(new Error(parameterErrorMessage));
+    });
+
+    it('THEN does not throw if the condition is true', () => {
+        expect(() => {
+            assert.assertParameter(typeof NUMBER === 'number', msg);
+        }).not.toThrow(new TypeError(parameterErrorMessage));
+    });
+});
 
 describe('Assert.isNumber helper', () => {
     it('THEN returns true if a number is passed', () => {

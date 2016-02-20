@@ -14,17 +14,17 @@ var destStylesDir = path.join(destDir, 'styles');
 var destScriptsDir = path.join(destDir, 'scripts');
 var destMedia = path.join(destDir, 'media');
 
-var testDir = './spec';
-
 var srcFolder = './src';
 var srcDir = './src/assets';
 var srcScriptsDir = path.join(srcDir, 'scripts');
 var srcStylesDir = path.join(srcDir, 'scss');
 var srcMedia = path.join(srcDir, 'media');
 
+var testDir = './spec';
+
+var tempDir = './.tmp';
 
 var options = {};
-
 options.ROOT = ROOT;
 options.DIR = {
     SRC_FOLDER: srcFolder,
@@ -43,7 +43,9 @@ options.DIR = {
     DOCS_API: docsApiDir,
     DOCS_COVERAGE: docsCoverageDir,
 
-    TEST: testDir
+    TEST: testDir,
+
+    TEMP_FOLDER: tempDir
 };
 
 options.FILE = {

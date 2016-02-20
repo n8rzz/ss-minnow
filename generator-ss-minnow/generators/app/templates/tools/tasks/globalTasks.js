@@ -3,12 +3,12 @@
 module.exports = function(gulp, config) {
     var OPTIONS = config;
 
+    var rimraf = require('rimraf');
+
     ////////////////////////////////////////////////////////////////////
     // CLEAN ASSETS FILES
     ////////////////////////////////////////////////////////////////////
     gulp.task('clean:dest', function(cb) {
-        var rimraf = require('rimraf');
-
         rimraf(OPTIONS.DIR.DEST, cb);
     });
 
@@ -16,9 +16,14 @@ module.exports = function(gulp, config) {
     // CLEAN DESTINATION FOLDERS
     ////////////////////////////////////////////////////////////////////
     gulp.task('clean:docs', function(cb) {
-        var rimraf = require('rimraf');
-
         rimraf(OPTIONS.DIR.DOCS_API, cb);
+    });
+
+    ////////////////////////////////////////////////////////////////////
+    // CLEAN TEMP FOLDERS
+    ////////////////////////////////////////////////////////////////////
+    gulp.task('clean:temp', function(cb) {
+        rimraf(OPTIONS.DIR.TEMP_FOLDER, cb);
     });
 
     ////////////////////////////////////////////////////////////////////
