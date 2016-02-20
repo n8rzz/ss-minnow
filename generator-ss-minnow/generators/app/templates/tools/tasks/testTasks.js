@@ -38,19 +38,19 @@ module.exports = function(gulp, config, ROOT) {
     }
 
 
-    // TODO - inplement chalk or colorization
+    // TODO - implement chalk or colorization
     // TODO - watch src/*.js files, find matching test then run
     ////////////////////////////////////////////////////////////////////
-    // JASMINE - TDD
+    // JASMINE/KARMA - TDD
     ////////////////////////////////////////////////////////////////////
-    gulp.task('test:tdd', function(done) {
+    gulp.task('watch:test:tdd', function(done) {
         return gulp.watch(OPTIONS.GLOB.TEST, function(event) {
             clear();
 
             var configPath = path.join(ROOT, 'karma-tdd.conf.js');
             var readablePathToTestFile = composePathToTestString(event.path);
 
-            console.log('\n\n========================================================================');
+            console.log('\n========================================================================');
             console.log('Running modified file: ', readablePathToTestFile);
             console.log('------------------------------------------------------------------------');
 
@@ -67,9 +67,13 @@ module.exports = function(gulp, config, ROOT) {
        });
     });
 
+    ////////////////////////////////////////////////////////////////////
+    // JASMINE/KARMA - RUN ALL TESTS
+    ////////////////////////////////////////////////////////////////////
+    gulp.task('test:scripts:all', shell.task('karma start --single-run'));
 
     ////////////////////////////////////////////////////////////////////
-    // TASKS
+    // KARMA/ISTANBUL - GENERATE COVERAGE REPORTS
     ////////////////////////////////////////////////////////////////////
-    gulp.task('watch:test:tdd', ['test:tdd']);
+    gulp.task('test:scripts:coverage', shell.task('karma start karma-coverage.conf.js --single-run'));
 }

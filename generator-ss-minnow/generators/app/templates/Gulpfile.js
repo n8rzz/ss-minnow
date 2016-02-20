@@ -20,6 +20,7 @@ require('./tools/tasks/testTasks')(gulp, OPTIONS, ROOT_DIR);
 gulp.task('watch', ['watch:sass', 'watch:scripts', 'watch:markup']);
 gulp.task('build', ['clean', 'build:sass', 'build:scripts', 'copy:markup', 'lint:scripts']);
 gulp.task('docs', ['clean:docs', 'docs:yui']);
-gulp.task('coverage', ['connect:coverage']);
+gulp.task('test', ['test:scripts:all']);
+gulp.task('coverage', ['test:scripts:coverage']);
 gulp.task('tdd', ['watch:test:tdd'])
 gulp.task('default', ['build']);

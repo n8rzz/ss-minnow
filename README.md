@@ -19,17 +19,18 @@ yo ss-minnow
 ## Available Tasks
 #### NPM Tasks:
 ```
-    npm run test
-    npm run coverage
+    npm run test (alias: gulp test)
+    npm run coverage (alias: gulp coverage)
 ```
 
 #### Gulp Tasks:
 ```
     gulp build
     gulp watch
+    gulp docs - generate api and coverage reports
+    gulp test - run entire test suite
     gulp tdd - run tests onChange for only the modified test file
-    gulp docs
-    gulp coverage - generate test coverage reports
+    gulp coverage - generate coverage reports
 ```
 
 ## Directory Layout

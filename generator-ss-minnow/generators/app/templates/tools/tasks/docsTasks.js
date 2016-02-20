@@ -12,8 +12,7 @@ module.exports = function(gulp, config) {
     gulp.task('connect:coverage', function() {
         connect.server({
             root: OPTIONS.DIR.DOCS_COVERAGE,
-            port: 3003,
-            livereload: true
+            port: 3003
         });
     });
 
