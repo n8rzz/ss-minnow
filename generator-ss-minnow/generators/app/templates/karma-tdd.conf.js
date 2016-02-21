@@ -7,11 +7,6 @@ module.exports = function(config) {
 
         frameworks: ['jasmine', 'browserify'],
 
-        files: [
-            'src/**/*.js',
-            'spec/**/*.spec.js'
-        ],
-
         browsers: ['PhantomJS'],
 
         exclude: [],
@@ -28,9 +23,11 @@ module.exports = function(config) {
             transform: [ 'babelify' ]
         },
 
-        autoWatchBatchDelay: 250,
+        concurrency: 1,
 
-        logLevel: 'warn',
+        logLevel: 'error',
+
+        port: 9876,
 
         specReporter: {
             maxLogLines: 5,               // limit number of lines logged per test

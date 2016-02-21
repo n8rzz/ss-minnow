@@ -5,3 +5,4 @@
 Gulpfile.js
 karma.conf.js
 karma-coverage.conf.js
+karma-tdd.conf.js
