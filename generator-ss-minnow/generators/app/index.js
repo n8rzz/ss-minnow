@@ -3,6 +3,7 @@ var yeoman = require('yeoman-generator').Base;
 var chalk = require('chalk');
 var yosay = require('yosay');
 var path = require('path');
+var pkg = require('../../../package.json');
 
 /**
  * @method hasMod
@@ -14,7 +15,7 @@ var hasMod = function hasMod(mod, props) {
     return props.additionalFeatures.indexOf(mod) !== -1;
 };
 
-module.exports = yeoman.extend({
+var App = yeoman.extend({
   prompting: function () {
     var done = this.async();
 
@@ -91,7 +92,6 @@ module.exports = yeoman.extend({
         this.hasLodash = hasMod('lodash', props);
         this.hasTcomb = hasMod('tcomb', props);
 
-
         done();
     }
     .bind(this));
@@ -100,7 +100,25 @@ module.exports = yeoman.extend({
 
 
     writing: {
-        config: function () {
+        writeOptionsToConfig: function() {
+            this.config.set('package', {
+                version: pkg.version,
+                timestamp: new Date().toLocaleString()
+            });
+
+            this.config.set('package-options', {
+                'name': this.props.name,
+                'version': this.props.version,
+                'description': this.props.description,
+                'shouldUseBower': this.props.shouldUseBower,
+                'hasLodash': this.hasLodash,
+                'hasTcomb': this.hasTcomb
+            });
+
+            this.config.save();
+        },
+
+        config: function() {
             if (this.props.shouldUseBower) {
                 this.fs.copyTpl(
                     this.templatePath('_bower.json'),
@@ -246,3 +264,5 @@ module.exports = yeoman.extend({
         this.log(operationIsCompleteMessage);
     }
 });
+
+module.exports = App;
