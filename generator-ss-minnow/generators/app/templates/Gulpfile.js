@@ -1,6 +1,9 @@
 'use strict';
 
+process.chdir(__dirname);
+
 var OPTIONS = require('./tools/paths');
+var CLI = require('./tools/cli');
 var gulp = require('gulp');
 var ROOT_DIR = __dirname;
 

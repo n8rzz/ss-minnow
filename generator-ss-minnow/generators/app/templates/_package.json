@@ -27,6 +27,7 @@
         "gulp-sourcemaps": "^1.6.0",
         "gulp-yuidoc": "^0.1.2",
         "isparta": "^2.2.0",
+        "istanbul": "gotwarlost/istanbul.git#source-map",
         "karma": "^0.13.21",
         "karma-babel-preprocessor": "^6.0.1",
         "karma-browserify": "~3.0.2",
@@ -37,10 +38,10 @@
         "karma-spec-reporter": "0.0.24",
         "rimraf": "^2.5.1",
         "vinyl-buffer": "^1.0.0",
-        "vinyl-source-stream": "^1.1.0"
+        "vinyl-source-stream": "^1.1.0",
+        "yargs": "^4.1.0"
     },
     "peerDependencies": {
-        "istanbul": "gotwarlost/istanbul.git#source-map",
         "jasmine-core": "*",
         "phantomjs-prebuilt": "*"
     },
