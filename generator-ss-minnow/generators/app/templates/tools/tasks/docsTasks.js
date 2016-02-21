@@ -19,7 +19,7 @@ module.exports = function(gulp, config) {
     ////////////////////////////////////////////////////////////////////
     // YUIDOC
     ////////////////////////////////////////////////////////////////////
-    gulp.task('docs:yui', function() {
+    gulp.task('docs:yui', ['clean:docs:api'], function() {
         gulp.src(OPTIONS.GLOB.JS)
             .pipe(yuidoc.parser())
             .pipe(yuidoc.generator())

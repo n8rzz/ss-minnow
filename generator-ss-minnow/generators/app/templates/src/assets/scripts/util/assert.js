@@ -24,7 +24,7 @@
  * assert utility
  * @author Adam Ranfelt <adamRenny@gmail.com>
  */
-export default function assertCondition(condition, message) {
+export function assertCondition(condition, message) {
     if (!condition) {
         throw new Error(message);
     }

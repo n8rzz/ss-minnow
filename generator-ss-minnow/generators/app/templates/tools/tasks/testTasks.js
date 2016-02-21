@@ -75,5 +75,5 @@ module.exports = function(gulp, config, ROOT) {
     ////////////////////////////////////////////////////////////////////
     // KARMA/ISTANBUL - GENERATE COVERAGE REPORTS
     ////////////////////////////////////////////////////////////////////
-    gulp.task('test:scripts:coverage', shell.task('karma start karma-coverage.conf.js --single-run'));
+    gulp.task('test:scripts:coverage', ['clean:docs:coverage'], shell.task('karma start karma-coverage.conf.js --single-run'));
 }
