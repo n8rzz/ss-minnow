@@ -5,7 +5,6 @@ module.exports = function(gulp, config, ROOT) {
     var path = require('path');
     var clear = require('clear');
     var shell = require('gulp-shell');
-    var Karma = require('karma').Server;
 
 
     ////////////////////////////////////////////////////////////////////
@@ -44,6 +43,9 @@ module.exports = function(gulp, config, ROOT) {
     // JASMINE/KARMA - TDD
     ////////////////////////////////////////////////////////////////////
     gulp.task('watch:test:tdd', function(done) {
+        var runner = require('karma').runner;
+        var Karma = require('karma').Server;
+
         return gulp.watch(OPTIONS.GLOB.TEST, function(event) {
             clear();
 
@@ -54,16 +56,26 @@ module.exports = function(gulp, config, ROOT) {
             console.log('Running modified file: ', readablePathToTestFile);
             console.log('------------------------------------------------------------------------');
 
-            var karmaServer = new Karma({
-                configFile: configPath,
-                files: [event.path],
-                singleRun: true
-            }, function() {
-                // empty callback to allow for the watch to continue to run
-                // not quit after one run.
-            });
+            if (!karmaServer) {
+                var karmaServer = new Karma({
+                    configFile: configPath,
+                    files: [event.path],
+                    singleRun: false, // TODO - move to config
+                    restartOnFileChange: true // TODO - move to config
+                }, function() {
+                    // empty callback to allow for the watch to continue to run
+                    // not quit after one run.
+                });
 
-            karmaServer.start();
+                karmaServer.start();
+            } else {
+                runner.run({
+                    files: [event.path],
+                    port: 9876
+                }, function(exitCode) {
+                    console.log('karma exited with ecit code: ', exitCode);
+                });
+            }
        });
     });
 
