@@ -25,6 +25,18 @@ module.exports = function(gulp, config) {
             .pipe(gulp.dest(OPTIONS.DIR.DEST_STYLES));
     });
 
+    ////////////////////////////////////////////////////////////////////
+    // SASS
+    ////////////////////////////////////////////////////////////////////
+    gulp.task('lint:sass', function() {
+        var sassLint = require('gulp-sass-lint');
+
+        gulp.src(OPTIONS.GLOB.SASS)
+            .pipe(sassLint())
+            .pipe(sassLint.format())
+            .pipe(sassLint.failOnError())
+    });
+
 
     ////////////////////////////////////////////////////////////////////
     // TASKS

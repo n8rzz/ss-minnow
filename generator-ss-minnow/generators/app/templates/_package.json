@@ -23,6 +23,7 @@
         "gulp-eslint": "^2.0.0",
         "gulp-plumber": "^1.0.1",
         "gulp-sass": "^2.2.0",
+        "gulp-sass-lint": "^1.1.1",
         "gulp-shell": "^0.5.2",
         "gulp-sourcemaps": "^1.6.0",
         "gulp-yuidoc": "^0.1.2",
@@ -40,6 +41,7 @@
         "karma-super-dots-reporter": "^0.1.0",
         "phantomjs-prebuilt": "*",
         "rimraf": "^2.5.1",
+        "sass-lint": "^1.5.0",
         "vinyl-buffer": "^1.0.0",
         "vinyl-source-stream": "^1.1.0",
         "yargs": "^4.1.0"
