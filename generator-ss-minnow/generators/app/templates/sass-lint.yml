@@ -13,13 +13,12 @@ options:
 files:
   include: 'src/assets/scss/**/*.s+(a|c)ss'
   ignore:
-    - 'src/assets/scss/base/_reset.scss'
+    - 'src/assets/scss/base/reset.scss'
     - 'web/**/*.*'
-    -
 # Rule Configuration
 rules:
   border-zero:
-    - 1
+    - 0
     -
       convention: 0
   brace-style:
@@ -40,7 +39,7 @@ rules:
   empty-args:
     - 1
     -
-      include: false
+      include: true
   empty-line-between-blocks:
     - 2
     -
@@ -54,7 +53,7 @@ rules:
       include: true
   force-attribute-nesting: 2
   force-element-nesting: 2
-  force-pseudo-nesting: 2
+  force-pseudo-nesting: 0
   function-name-format:
     - 2
     -
@@ -89,7 +88,7 @@ rules:
       max-depth: 1
   no-color-keywords: 2
   no-color-literals:
-    - 2
+    - 0
     -
       allow-rgba: true
   no-css-comments: 0
@@ -119,7 +118,7 @@ rules:
       allow-element-with-id: false
   no-trailing-zero: 1
   no-transition-all: 1
-  no-url-protocols: 1
+  no-url-protocols: 0
   no-vendor-prefixes: 0
   no-warn: 1
   one-declaration-per-line: 2
@@ -129,10 +128,29 @@ rules:
     -
       order:
         - width
+        - min-width
+        - max-width
         - height
+        - min-height
+        - max-height
+        - position
+        - top
+        - right
+        - bottom
+        - left
         - display
+        - float
         - margin
+        - margin-top
+        - margin-right
+        - margin-bottom
+        - margin-left
         - padding
+        - padding-top
+        - padding-right
+        - padding-bottom
+        - padding-left
+        - overflow
       ignore-custom-properties: true
   property-units:
     - 2
@@ -176,7 +194,7 @@ rules:
       include: true
   url-quotes: 1
   variable-for-property:
-    - 1
+    - 0
     -
       properties:
         - margin
