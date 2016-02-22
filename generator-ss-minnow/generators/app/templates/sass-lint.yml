@@ -37,7 +37,7 @@ rules:
       leading-underscore: false
       filename-extension: false
   empty-args:
-    - 1
+    - 0
     -
       include: true
   empty-line-between-blocks:

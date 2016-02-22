@@ -36,12 +36,16 @@ module.exports = function(gulp, config) {
 
         var configFileJSON = jsYaml.safeLoad(fs.readFileSync(OPTIONS.FILE.SASS_LINT_CONFIG, 'utf8'));
 
-        gulp.src(OPTIONS.GLOB.SASS)
+        gulp.src([
+            OPTIONS.GLOB.SASS,
+                '!**/_reset.scss',
+                '!**/_util.scss',
+                '!**/grid/_helpers.scss'
+            ])
             .pipe(sassLint(configFileJSON))
             .pipe(sassLint.format())
             .pipe(sassLint.failOnError())
     });
-
 
     ////////////////////////////////////////////////////////////////////
     // TASKS
