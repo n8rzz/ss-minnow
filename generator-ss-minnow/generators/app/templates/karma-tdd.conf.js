@@ -1,3 +1,4 @@
+/*eslint-disable */
 'use strict';
 
 module.exports = function(config) {
@@ -11,7 +12,7 @@ module.exports = function(config) {
 
         exclude: [],
 
-        reporters: ['spec'],
+        reporters: ['spec', 'super-dots'],
 
         preprocessors: {
             '**src/**/*.js': ['browserify'],
@@ -23,7 +24,8 @@ module.exports = function(config) {
             transform: [ 'babelify' ]
         },
 
-        concurrency: 1,
+        // concurrency: 1,
+        clearContext: true,
 
         logLevel: 'error',
 
@@ -33,8 +35,16 @@ module.exports = function(config) {
             maxLogLines: 5,               // limit number of lines logged per test
             suppressErrorSummary: true,   // do not print error summary
             suppressFailed: false,        // do not print information about failed tests
-            suppressPassed: false,        // do not print information about passed tests
+            suppressPassed: true,        // do not print information about passed tests
             suppressSkipped: true         // do not print information about skipped tests
+        },
+
+        superDotsReporter: {
+            icon: {
+                success: '.',
+                failure: 'F',
+                ignore: '-'
+            }
         }
     });
 };
