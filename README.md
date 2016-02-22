@@ -1,16 +1,30 @@
 # generator-ss-minnow [![NPM version][npm-image]][npm-url] [![Dependency Status][daviddm-image]][daviddm-url]
 > A simple project starter
 
-## Installation
+## What is a Yeoman?
 
-First, install [Yeoman](http://yeoman.io) and generator-ss-minnow using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+Feel free to [learn more about him](http://yeoman.io/).
+
+
+## Pre-Installation
+In order to run this generator you will first need to clone this repo locally.
+```bash
+git clone https://github.com/n8rzz/ss-minnow.git
+```
+
+Navigate to `ss-minnow/generator-ss-minnow`, then run the `npm link` command.  This will create a link to your global npm modules folder and allow you to use the
+`yo ss-minnow` command inside any folder.
+
+
+## Installation
+First, install [Yeoman](http://yeoman.io) and ~~generator-ss-minnow using [npm](https://www.npmjs.com/)~~ (we assume you have pre-installed [node.js](https://nodejs.org/)).
+
 
 ```bash
 npm install -g yo
-npm install -g generator-ss-minnow
 ```
 
-Then generate your new project:
+Create a new project folder, `cd` into it and then generate your new project:
 
 ```bash
 yo ss-minnow
@@ -29,7 +43,7 @@ yo ss-minnow
     gulp watch
     gulp docs - generate api and coverage reports
     gulp test - run entire test suite
-    gulp tdd - run tests onChange for only the modified test file
+    gulp tdd - run tests onChange showing only failing test(s)
     gulp coverage - generate coverage reports
 ```
 
@@ -117,7 +131,9 @@ yo ss-minnow
 │           ├── gitignore
 │           ├── Gulpfile.js
 │           ├── karma-coverage.conf.js
+│           ├── karma-tdd.conf.js
 │           └── karma.conf.js
+│           └── _package.json
 │       └── index.js
 ├── .editorconfig
 ├── .eslinignore
@@ -132,10 +148,7 @@ yo ss-minnow
 ```
 
 ## Support
-
-## What is a Yeoman?
-
-Feel free to [learn more about him](http://yeoman.io/).
+I you have questions or spot a bug, please feel free to [log an issue](https://github.com/n8rzz/ss-minnow/issues).
 
 ## License
 
@@ -144,5 +157,5 @@ MIT © [Nate geslin](https://github.com/n8rzz)
 
 [npm-image]: https://badge.fury.io/js/generator-ss-minnow.svg
 [npm-url]: https://npmjs.org/package/generator-ss-minnow
-[daviddm-image]: https://david-dm.org/n8rzz/generator-ss-minnow.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/n8rzz/generator-ss-minnow
+[daviddm-image]: https://david-dm.org/n8rzz/ss-minnow.svg
+[daviddm-url]: https://david-dm.org/n8rzz/ss-minnow
