@@ -1,15 +1,15 @@
 // ---------------------------------------------------------------------
 // Text
 // ---------------------------------------------------------------------
-.txt {}
+.txt { font-size: $BASE_FONT_SIZE; }
 
 .txt-xsm {}
 .txt-sm {
-  font-size: $BASE_FONT_SIZE - 2px;
+    font-size: $BASE_FONT_SIZE - 2px;
 }
 
 .txt-md {
-  font-size: $BASE_FONT_SIZE;
+    font-size: $BASE_FONT_SIZE;
 }
 
 .txt-lg {}
@@ -20,14 +20,14 @@
 .txt-right { text-align: right; }
 
 .mix-txt_light {
-   color: $COLOR_MID_GREY;
+    color: $COLOR_MID_GREY;
 }
 
 .mix-txt_cursive {
-  font-family: $FONT_CURSIVE;
+    font-family: $FONT_CURSIVE;
 }
 
 .mix-txt_italic {
-  font-style: italic;
+    font-style: italic;
 }
 

@@ -6,6 +6,7 @@ $GRID_BREAKPOINT_SM: 'sm';
 $GRID_BREAKPOINT_MD: 'md';
 $GRID_BREAKPOINT_LG: 'lg';
 
+// scss-lint:disable all
 @mixin buildGrid($breakpoint, $i) {
     .grid-col-#{$breakpoint}_#{$i}of#{$GRID_COLUMNS} {
         width: 100% / $GRID_COLUMNS * $i;

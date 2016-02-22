@@ -31,12 +31,12 @@ rules:
     - 2
     -
       allow-leading-underscore: false
-      convention: 'camelCase' # TODO - change to a regex
+      convention: ^[\-a-zA-z0-9\_\-]*[a-zA-Z0-9]+(?!:(mix\-))$
   clean-import-paths:
     - 2
     -
       leading-underscore: false
-      filename-extension: true
+      filename-extension: false
   empty-args:
     - 1
     -
@@ -81,7 +81,7 @@ rules:
     - 2
     -
       allow-leading-underscore: false
-      convention: camelCase
+      convention: ^[\-a-zA-z0-9\_]*[a-zA-Z0-9]+(?!:(mix\-))$
   mixins-before-declarations: 2
   nesting-depth:
     - 2
@@ -99,6 +99,8 @@ rules:
   -
     exclude:
       - display
+      - color
+      - font-size
   no-empty-rulesets: 2
   no-extends: 1
   no-ids: 2
@@ -184,7 +186,7 @@ rules:
     - 2
     -
       allow-leading-underscore: false
-      convention: ^[A-Z]+$
+      convention: ^[a-zA-Z\_]+$
   zero-unit:
     - 1
     -

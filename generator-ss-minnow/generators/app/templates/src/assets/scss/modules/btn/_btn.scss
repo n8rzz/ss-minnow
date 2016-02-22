@@ -1,9 +1,12 @@
 // ---------------------------------------------------------------------
 // Buttons
 // ---------------------------------------------------------------------
-@import '_btnAsLink';
+@import 'btnAsLink';
 
 .btn {
+    @include border-box;
+    @include transition(all, 0.12s);
+
     display: inline-block;
     margin: 0;
     padding: 8px 16px;
@@ -19,23 +22,20 @@
     // text-transform: uppercase;
     cursor: pointer;
     border-radius: 6px;
-
-    @include border-box;
-    @include transition(all, .12s);
 }
 
-.btn:hover{
+.btn:hover {
     background: rgba(0, 100, 0, 0.7);
 }
 
 .btn-sm {
-  padding: 4px 12px;
-  font-size: $BASE_FONT_SIZE - 2px;
+    padding: 4px 12px;
+    font-size: $BASE_FONT_SIZE - 2px;
 }
 
 .btn_disabled {
     color: #666666; /* fallback for non rgba browsers */
-    color: rgba(0,0,0,.3);
+    color: rgba(0, 0, 0, 0.3);
     background: #cccccc !important; /* override hovers - disabled buttons don't have hover states */
 }
 
