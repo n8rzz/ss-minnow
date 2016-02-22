@@ -49,7 +49,8 @@ options.DIR = {
 };
 
 options.FILE = {
-    JS_SRC_CLIENT: './src/assets/scripts/main.js'
+    JS_SRC_CLIENT: './src/assets/scripts/main.js',
+    SASS_LINT_CONFIG: './sass-lint.yml'
 };
 
 

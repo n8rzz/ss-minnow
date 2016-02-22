@@ -3,6 +3,7 @@
 module.exports = function(gulp, config) {
     var OPTIONS = config;
 
+    var path = require('path');
     var sourcemaps = require('gulp-sourcemaps');
 
     ////////////////////////////////////////////////////////////////////
@@ -30,9 +31,13 @@ module.exports = function(gulp, config) {
     ////////////////////////////////////////////////////////////////////
     gulp.task('lint:sass', function() {
         var sassLint = require('gulp-sass-lint');
+        var jsYaml = require('js-yaml');
+        var fs = require('fs');
+
+        var configFileJSON = jsYaml.safeLoad(fs.readFileSync(OPTIONS.FILE.SASS_LINT_CONFIG, 'utf8'));
 
         gulp.src(OPTIONS.GLOB.SASS)
-            .pipe(sassLint())
+            .pipe(sassLint(configFileJSON))
             .pipe(sassLint.format())
             .pipe(sassLint.failOnError())
     });
