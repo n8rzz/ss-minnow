@@ -80,15 +80,9 @@ yo ss-minnow
 │                               └── _alert.scss
 │                           ├── blocks/
 │                               └── _blocks.scss
-│                           ├── box/
-│                               └── _box.scss
 │                           ├── btn/
 │                               ├── _btn.scss
 │                               └── _btnAsLink.scss
-│                           ├── excerpt/
-│                               └── _excerpt.scss
-│                           ├── feature/
-│                               └── _feature.scss
 │                           ├── grid/
 │                               ├── _grid.scss
 │                               ├── _grid_lg.scss
@@ -106,8 +100,6 @@ yo ss-minnow
 │                               └── _link.scss
 │                           ├── media/
 │                               └── _media.scss
-│                           ├── preview/
-│                               └── _preview.scss
 │                           ├── txt/
 │                               └── _txt.scss
 │                           ├── vlist/
