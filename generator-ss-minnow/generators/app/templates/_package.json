@@ -43,6 +43,7 @@
         "karma-super-dots-reporter": "^0.1.0",
         "phantomjs-prebuilt": "*",
         "rimraf": "^2.5.1",
+        "run-sequence": "^1.1.5",
         "sass-lint": "^1.5.0",
         "vinyl-buffer": "^1.0.0",
         "vinyl-source-stream": "^1.1.0",

@@ -258,9 +258,10 @@ var App = yeoman.extend({
         '\n\n\tAvailable Gulp Tasks:' +
         '\n\t' + chalk.yellow('gulp build') +
         '\n\t' + chalk.yellow('gulp watch') +
+        '\n\t' + chalk.yellow('gulp lint') + chalk.gray(' - lint SASS and Javascript files') +
         '\n\t' + chalk.yellow('gulp test') + chalk.gray(' - run entire test suite') +
         '\n\t' + chalk.yellow('gulp tdd') + chalk.gray(' - run tests onChange for only the modified test file') +
-        '\n\t' + chalk.yellow('gulp docs') + chalk.gray(' - create api docs') +
+        '\n\t' + chalk.yellow('gulp docs') + chalk.gray(' - generate documentation (API and Coverage reports)') +
         '\n\t' + chalk.yellow('gulp coverage') + chalk.gray(' - generate coverage reports') +
         '\n\n\n' +
         chalk.gray('######################################################################################') +

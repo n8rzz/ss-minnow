@@ -31,7 +31,7 @@ module.exports = function(gulp, config) {
     ////////////////////////////////////////////////////////////////////
     // ESLINT
     ////////////////////////////////////////////////////////////////////
-    gulp.task('lint', function() {
+    gulp.task('lint:scripts', function() {
         gulp.src([OPTIONS.FILE.JS_SRC_CLIENT])
             .pipe(eslint({
                 useEslintrc: true
@@ -44,7 +44,6 @@ module.exports = function(gulp, config) {
     // TASKS
     ////////////////////////////////////////////////////////////////////
     gulp.task('build:scripts', ['babel']);
-    gulp.task('lint:scripts', ['lint']);
 
     gulp.task('watch:scripts', function() {
         gulp.watch(OPTIONS.GLOB.JS, ['babel']);

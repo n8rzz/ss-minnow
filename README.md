@@ -41,7 +41,8 @@ yo ss-minnow
 ```
     gulp build
     gulp watch
-    gulp docs - generate api and coverage reports
+    gulp lint - lint SASS and Javascript files'
+    gulp docs - generate documentation (API and Coverage reports
     gulp test - run entire test suite
     gulp tdd - run tests onChange showing only failing test(s)
     gulp coverage - generate coverage reports
