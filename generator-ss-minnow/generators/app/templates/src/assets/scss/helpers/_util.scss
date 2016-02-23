@@ -1,7 +1,7 @@
 // ------------------------------------------------------------------------
 // Mixins
 // ------------------------------------------------------------------------
-@mixin border-box {
+@mixin border-box() {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -20,24 +20,24 @@
 @mixin clearfix() {
     &:before,
     &:after {
-        content: " ";
         display: table;
+        content: ' ';
     }
+
     &:after {
         clear: both;
     }
 }
 
 @mixin isVisuallyHidden() {
-    overflow: hidden !important;
     width: 1px !important;
     height: 1px !important;
-    margin: 0 !important;
-    border: 0 !important;
-    padding: 0 !important;
     position: absolute !important;
     left: -9999px;
-    clip: rect(1px 1px 1px 1px) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    border: 0 !important;
     clip: rect(1px, 1px, 1px, 1px) !important;
 }
 
@@ -53,7 +53,7 @@
 }
 
 // rem mixin w/ fallback
-@mixin font-size($val){
+@mixin font-size($val) {
     font-size: $val + px;
     font-size: $val / $BASE_FONT_SIZE + rem;
 }

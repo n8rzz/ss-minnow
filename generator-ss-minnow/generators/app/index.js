@@ -217,6 +217,11 @@ var App = yeoman.extend({
 
         scss: function() {
             this.fs.copy(
+                this.templatePath('sass-lint.yml'),
+                this.destinationPath('sass-lint.yml')
+            );
+
+            this.fs.copy(
                 this.templatePath('src/assets/scss'),
                 this.destinationPath('src/assets/scss')
             );

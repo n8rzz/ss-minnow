@@ -4,8 +4,8 @@
 .input {
     width: 100%;
     max-width: 600px;
-    padding-left: 10px;
     padding-right: 10px;
+    padding-left: 10px;
     border: 1px solid #222222;
     border-radius: 2px;
     font-size: $BASE_FONT_SIZE;
@@ -32,7 +32,6 @@
 }
 
 .mix-input_block {
-    display: block;
     width: 95%;
-
+    display: block;
 }

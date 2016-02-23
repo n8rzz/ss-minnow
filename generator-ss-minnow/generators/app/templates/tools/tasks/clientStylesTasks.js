@@ -3,6 +3,7 @@
 module.exports = function(gulp, config) {
     var OPTIONS = config;
 
+    var path = require('path');
     var sourcemaps = require('gulp-sourcemaps');
 
     ////////////////////////////////////////////////////////////////////
@@ -25,6 +26,26 @@ module.exports = function(gulp, config) {
             .pipe(gulp.dest(OPTIONS.DIR.DEST_STYLES));
     });
 
+    ////////////////////////////////////////////////////////////////////
+    // SASS
+    ////////////////////////////////////////////////////////////////////
+    gulp.task('lint:sass', function() {
+        var sassLint = require('gulp-sass-lint');
+        var jsYaml = require('js-yaml');
+        var fs = require('fs');
+
+        var configFileJSON = jsYaml.safeLoad(fs.readFileSync(OPTIONS.FILE.SASS_LINT_CONFIG, 'utf8'));
+
+        gulp.src([
+            OPTIONS.GLOB.SASS,
+                '!**/_reset.scss',
+                '!**/_util.scss',
+                '!**/grid/_helpers.scss'
+            ])
+            .pipe(sassLint(configFileJSON))
+            .pipe(sassLint.format())
+            .pipe(sassLint.failOnError())
+    });
 
     ////////////////////////////////////////////////////////////////////
     // TASKS
