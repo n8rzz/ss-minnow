@@ -20,7 +20,7 @@ describe('generator-ss-minnow:app', function () {
 
 
     beforeEach(function (done) {
-        helpers.testDirectory(path.join(__dirname, 'temp'), done);
+        // helpers.testDirectory(path.join(__dirname, 'temp'), done);
 
         helpers.run(require.resolve(appPath))
             .withPrompts({
@@ -39,9 +39,9 @@ describe('generator-ss-minnow:app', function () {
 
 
 
-    // it('should generate a .babelrc file', function() {
-    //     assert.file('.babelrc');
-    // });
+    it('should generate a .babelrc file', function() {
+        assert.file('.babelrc');
+    });
 
     // it('should generate a .bowerrc file', function() {
     //     assert.file('.bowerrc');
@@ -52,42 +52,42 @@ describe('generator-ss-minnow:app', function () {
     // });
 
     // it('should generate an .editorconfig file', function() {
-    //     assert.file('temp/editorconfig');
+    //     assert.file('editorconfig');
     // });
 
-    // it('should generate an .eslintignore file', function() {
-    //     assert.file('temp/.eslintignore');
-    // });
+    it('should generate an .eslintignore file', function() {
+        assert.file('.eslintignore');
+    });
 
-    // it('should generate an .eslintrc file', function() {
-    //     assert.file('temp/.eslintrc');
-    // });
+    it('should generate an .eslintrc file', function() {
+        assert.file('.eslintrc');
+    });
 
-    // it('should generate a .gitignore file', function() {
-    //     assert.file('temp/.gitignore');
-    // });
+    it('should generate a .gitignore file', function() {
+        assert.file('.gitignore');
+    });
 
-    // it('should generate a Gulpfile.js file', function() {
-    //     assert.file('temp/Gulpfile.js');
-    // });
+    it('should generate a Gulpfile.js file', function() {
+        assert.file('Gulpfile.js');
+    });
 
-    // it('should generate a karma-coverage.conf.js file', function() {
-    //     assert.file('temp/karma-coverage.conf.js');
-    // });
+    it('should generate a karma-coverage.conf.js file', function() {
+        assert.file('karma-coverage.conf.js');
+    });
 
-    // it('should generate a karma-tdd.conf.js file', function() {
-    //     assert.file('temp/karma-tdd.conf.js');
-    // });
+    it('should generate a karma-tdd.conf.js file', function() {
+        assert.file('karma-tdd.conf.js');
+    });
 
-    // it('should generate a karma.conf.js file', function() {
-    //     assert.file('temp/karma.conf.js');
-    // });
+    it('should generate a karma.conf.js file', function() {
+        assert.file('karma.conf.js');
+    });
 
-    // it('should generate a sass-lint.yml file', function() {
-    //     assert.file('temp/sass-lint.yml');
-    // });
+    it('should generate a sass-lint.yml file', function() {
+        assert.file('sass-lint.yml');
+    });
 
-    // it('should generate a package.json file', function() {
-    //     assert.file('temp/package.json');
-    // });
+    it('should generate a package.json file', function() {
+        assert.file('package.json');
+    });
 });
