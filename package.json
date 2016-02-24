@@ -24,5 +24,7 @@
     "test": "gulp"
   },
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "fs": "0.0.2"
+  }
 }
