@@ -53,6 +53,9 @@ export default class Main {
      * @chainable
      */
     _destroy() {
+        this.$element = null;
+        this.app = null;
+
         return this;
     }
 }
