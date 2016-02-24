@@ -11,9 +11,9 @@ var pkg = require('../../../package.json');
  * @param  {object} props
  * @return {Boolean}
  */
-var hasMod = function hasMod(mod, props) {
-    return props.additionalFeatures.indexOf(mod) !== -1;
-};
+// var hasMod = function hasMod(mod, props) {
+//     return props.additionalFeatures.indexOf(mod) !== -1;
+// };
 
 var App = yeoman.extend({
   prompting: function () {
@@ -76,21 +76,44 @@ var App = yeoman.extend({
             default: false
         },
         {
-            type: 'checkbox',
-            name: 'additionalFeatures',
-            label: 'Features',
-            message: 'Additional Packages to include',
-            choices: [
-                { name: 'lodash',          value: 'lodash' },
-                { name: 'tcomb',           value: 'tcomb' }
-            ]
+            type: 'confirm',
+            name: 'hasLodash'  ,
+            message: 'Would you like to include lodash',
+            default: true
+        },
+        {
+            type: 'confirm',
+            name: 'hasTcomb'  ,
+            message: 'Would you like to include tcomb',
+            default: true
         }
+        // ,
+        // {
+        //     type: 'checkbox',
+        //     name: 'additionalFeatures',
+        //     label: 'Features',
+        //     message: 'Additional Packages to include',
+        //     choices: [
+        //         { name: 'lodash',          value: 'lodash' },
+        //         { name: 'tcomb',           value: 'tcomb' }
+        //     ]
+        // }
     ];
 
     this.prompt(prompts, function (props) {
+        console.log('#$# props: ', props);
         this.props = props;
-        this.hasLodash = hasMod('lodash', props);
-        this.hasTcomb = hasMod('tcomb', props);
+        // this.hasLodash = false; // hasMod('lodash', props);
+        // this.hasTcomb = false; // hasMod('tcomb', props);
+
+        // if (this.props.additionalFeatures.indexOf('lodash') !== -1) {
+        //     this.hasLodash = true;
+        // }
+
+        // if (this.props.additionalFeatures.indexOf('tcomb') !== -1) {
+        //     this.hasTcomb = true;
+        // }
+
 
         done();
     }

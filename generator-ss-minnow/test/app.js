@@ -1,28 +1,93 @@
 'use strict';
 var path = require('path');
 var assert = require('yeoman-assert');
-var helpers = require('yeoman-generator').test;
+var helpers = require('yeoman-test');
+var rimraf = require('rimraf');
+var temp = require('temp').track();
 
 describe('generator-ss-minnow:app', function () {
+    var appPath = path.join(__dirname, '../generators/app');
+
+    before(function (done) {
+        helpers.testDirectory(path.join(__dirname, 'temp'), done);
+    });
+
+    after(function(done) {
+        temp.cleanup();
+
+        rimraf(path.join(__dirname, 'temp'), done);
+    });
+
+
     beforeEach(function (done) {
-        helpers.run(path.join(__dirname, '../generators/app'))
+        helpers.testDirectory(path.join(__dirname, 'temp'), done);
+
+        helpers.run(require.resolve(appPath))
+            .withPrompts({
+                title: 'Project Title',
+                name: 'project-title',
+                description: 'Description',
+                version: '1.0.0'
+            })
             .withOptions([
+                { shouldUseBower: false, },
                 { tcomb: true },
                 { lodash: true }
             ])
-            .withPrompts({someAnswer: true})
-    .on('end', done);
+            .on('end', done);
     });
 
-    it('creates config files', function () {
-        assert.file([
-            'package.json',
-            '.bablerc',
-            '.editorconfig',
-            '.eslintrc',
-            '.gitignore',
-            'Gulpfile.js',
-            'karma.conf.js'
-        ]);
-    });
+
+
+    // it('should generate a .babelrc file', function() {
+    //     assert.file('.babelrc');
+    // });
+
+    // it('should generate a .bowerrc file', function() {
+    //     assert.file('.bowerrc');
+    // });
+
+    // it('should generate a .bowerrc file', function() {
+    //     assert.file('.bowerrc');
+    // });
+
+    // it('should generate an .editorconfig file', function() {
+    //     assert.file('temp/editorconfig');
+    // });
+
+    // it('should generate an .eslintignore file', function() {
+    //     assert.file('temp/.eslintignore');
+    // });
+
+    // it('should generate an .eslintrc file', function() {
+    //     assert.file('temp/.eslintrc');
+    // });
+
+    // it('should generate a .gitignore file', function() {
+    //     assert.file('temp/.gitignore');
+    // });
+
+    // it('should generate a Gulpfile.js file', function() {
+    //     assert.file('temp/Gulpfile.js');
+    // });
+
+    // it('should generate a karma-coverage.conf.js file', function() {
+    //     assert.file('temp/karma-coverage.conf.js');
+    // });
+
+    // it('should generate a karma-tdd.conf.js file', function() {
+    //     assert.file('temp/karma-tdd.conf.js');
+    // });
+
+    // it('should generate a karma.conf.js file', function() {
+    //     assert.file('temp/karma.conf.js');
+    // });
+
+    // it('should generate a sass-lint.yml file', function() {
+    //     assert.file('temp/sass-lint.yml');
+    // });
+
+    // it('should generate a package.json file', function() {
+    //     assert.file('temp/package.json');
+    // });
 });
