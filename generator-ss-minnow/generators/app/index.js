@@ -102,6 +102,7 @@ var App = yeoman.extend({
 
     this.prompt(prompts, function (props) {
         this.props = props;
+        console.log('props: ', props);
         // this.hasLodash = false; // hasMod('lodash', props);
         // this.hasTcomb = false; // hasMod('tcomb', props);
 
@@ -133,8 +134,8 @@ var App = yeoman.extend({
                 'version': this.props.version,
                 'description': this.props.description,
                 'shouldUseBower': this.props.shouldUseBower,
-                'hasLodash': this.hasLodash,
-                'hasTcomb': this.hasTcomb
+                'hasLodash': this.props.hasLodash,
+                'hasTcomb': this.props.hasTcomb
             });
 
             this.config.save();
@@ -232,8 +233,8 @@ var App = yeoman.extend({
                     name: this.props.name,
                     version: this.props.version,
                     description: this.props.description,
-                    includeLodash: this.hasLodash,
-                    includeTcomb: this.hasTcomb
+                    includeLodash: this.props.hasLodash,
+                    includeTcomb: this.props.hasTcomb
             });
         },
 

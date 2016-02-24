@@ -3,6 +3,7 @@
   "description": "A simple JS starter with gulp, browserify, babel, and jasmine via karma",
   "devDependencies": {
     "eslint-config-xo-space": "^0.7.0",
+    "fs": "0.0.2",
     "gulp": "^3.9.0",
     "gulp-eslint": "^1.0.0",
     "gulp-exclude-gitignore": "^1.0.0",
@@ -23,8 +24,5 @@
   "scripts": {
     "test": "gulp"
   },
-  "license": "MIT",
-  "dependencies": {
-    "fs": "0.0.2"
-  }
+  "license": "MIT"
 }
