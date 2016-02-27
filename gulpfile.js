@@ -17,7 +17,7 @@ gulp.task('static', function () {
 
 gulp.task('pre-test', function () {
   return gulp.src([
-      'generators/**/*.js',
+      'generators/app/index.js',
       '!generators/**/*.spec.js',
       '!generators/templates/**/*',
     ])

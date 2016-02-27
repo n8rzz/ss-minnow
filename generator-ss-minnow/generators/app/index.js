@@ -102,7 +102,7 @@ var App = yeoman.extend({
 
     this.prompt(prompts, function (props) {
         this.props = props;
-        console.log('props: ', props);
+        // console.log('props: ', props);
         // this.hasLodash = false; // hasMod('lodash', props);
         // this.hasTcomb = false; // hasMod('tcomb', props);
 
