@@ -19,13 +19,15 @@ module.exports = function(gulp, config) {
             extensions: ['.js, .jsx'],
             debug: true
         })
-            .transform(babelify)
-            .bundle()
-            .pipe(source('bundle.js'))
-            .pipe(buffer())
-            .pipe(sourcemaps.init({ loadMaps: true }))
-            .pipe(sourcemaps.write('./'))
-            .pipe(gulp.dest(OPTIONS.DIR.DEST_SCRIPTS));
+        .transform(babelify, {
+            presets: ['es2015']
+        })
+        .bundle()
+        .pipe(source('bundle.js'))
+        .pipe(buffer())
+        .pipe(sourcemaps.init({ loadMaps: true }))
+        .pipe(sourcemaps.write('./'))
+        .pipe(gulp.dest(OPTIONS.DIR.DEST_SCRIPTS));
     });
 
     ////////////////////////////////////////////////////////////////////
