@@ -4,7 +4,7 @@
   "description": "A simple project starter",
   "homepage": "https://github.com/n8rzz/ss-minnow/",
   "author": {
-    "name": "Nate geslin",
+    "name": "Nate Geslin",
     "email": "teamtomkins23@gmail.com",
     "url": "https://github.com/n8rzz/ss-minnow/"
   },
@@ -16,7 +16,14 @@
   ],
   "main": "generators/index.js",
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "sass",
+    "es6",
+    "gulp",
+    "jasmine",
+    "sass-lint",
+    "karma",
+    "eslint"
   ],
   "repository": {
     "type": "git",

@@ -1,10 +1,5 @@
-# generator-ss-minnow [![NPM version][npm-image]][npm-url] [![Dependency Status][daviddm-image]][daviddm-url]
-> A simple project starter
-
-## What is a Yeoman?
-
-Feel free to [learn more about him](http://yeoman.io/).
-
+# SS-Minnow [![NPM version][npm-image]][npm-url] [![Dependency Status][daviddm-image]][daviddm-url] [![devDependency Status][davidm-dev-image]][davidm-dev-url]
+> A client-side boilerplate ready for development with Gulp, SASS, ES6, Jasmine, Karma, ESlint, Sass-Lint and YUIDoc.
 
 ## Pre-Installation
 In order to run this generator you will first need to clone this repo locally.
@@ -82,8 +77,7 @@ yo ss-minnow
 │                           ├── blocks/
 │                               └── _blocks.scss
 │                           ├── btn/
-│                               ├── _btn.scss
-│                               └── _btnAsLink.scss
+│                               └── _btn.scss
 │                           ├── grid/
 │                               ├── _grid.scss
 │                               ├── _grid_lg.scss
@@ -116,7 +110,18 @@ yo ss-minnow
 │                       └── modern.css
 │               └── index.html
 │           ├── tools/
+│               ├── tasks/
+│                   ├── clientMarkupTasks.js
+│                   ├── clientScriptsTasks.js
+│                   ├── clientStylesTasks.js
+│                   ├── docsTasks.js
+│                   ├── globalTasks.js
+│                   └── testTasks.js
+│               ├── cli.js
+│               └── paths.js
 │           ├── _bower.json
+│           ├── _package.json
+│           ├── babelrc
 │           ├── bowerrc
 │           ├── editorconfig
 │           ├── eslintignore
@@ -125,8 +130,9 @@ yo ss-minnow
 │           ├── Gulpfile.js
 │           ├── karma-coverage.conf.js
 │           ├── karma-tdd.conf.js
-│           └── karma.conf.js
-│           └── _package.json
+│           ├── karma.conf.js
+│           ├── README.md
+│           └── sass-lint.yml
 │       └── index.js
 ├── .editorconfig
 ├── .eslinignore
@@ -141,10 +147,9 @@ yo ss-minnow
 ```
 
 ## Support
-I you have questions or spot a bug, please feel free to [log an issue](https://github.com/n8rzz/ss-minnow/issues).
+I you have a question or spot a bug, please feel free to [log an issue](https://github.com/n8rzz/ss-minnow/issues).
 
 ## License
-
 MIT © [Nate geslin](https://github.com/n8rzz)
 
 
@@ -152,3 +157,5 @@ MIT © [Nate geslin](https://github.com/n8rzz)
 [npm-url]: https://npmjs.org/package/generator-ss-minnow
 [daviddm-image]: https://david-dm.org/n8rzz/ss-minnow.svg
 [daviddm-url]: https://david-dm.org/n8rzz/ss-minnow
+[davidm-dev-image]: https://david-dm.org/n8rzz/ss-minnow/dev-status.svg
+[davidm-dev-url]: https://david-dm.org/n8rzz/ss-minnow#info=devDependencies
