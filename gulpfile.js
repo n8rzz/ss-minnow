@@ -52,4 +52,4 @@ gulp.task('watch', function () {
   gulp.watch(['/**/*.js', 'test/**'], ['test']);
 });
 
-gulp.task('default', ['static', 'test']);
+gulp.task('default', ['test']);
