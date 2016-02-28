@@ -16,11 +16,18 @@ gulp.task('static', function () {
 });
 
 gulp.task('pre-test', function () {
-  return gulp.src('generators/**/*.js')
+  return gulp.src([
+      'generators/app/index.js',
+      '!generators/**/*.spec.js',
+      '!generators/templates/**/*',
+    ])
     .pipe(excludeGitignore())
     .pipe(istanbul({
-      ignore: ['**/node_modules/**', '**/templates/**'],
-      includeUntested: true
+      ignore: [
+        '**/node_modules/**',
+        '**/templates/**'
+      ],
+      includeUntested: false
     }))
     .pipe(istanbul.hookRequire());
 });
@@ -28,10 +35,11 @@ gulp.task('pre-test', function () {
 gulp.task('test', ['pre-test'], function (cb) {
   var mochaErr;
 
-  gulp.src('test/**/*.js')
+  gulp.src('generator-ss-minnow/test/**/*.js')
     .pipe(plumber())
-    .pipe(mocha({reporter: 'spec'}))
+    .pipe(mocha({reporter: 'dot'}))
     .on('error', function (err) {
+      console.log('AN ERROR OCCURED IN MOCHA: ', err);
       mochaErr = err;
     })
     .pipe(istanbul.writeReports())
@@ -41,7 +49,7 @@ gulp.task('test', ['pre-test'], function (cb) {
 });
 
 gulp.task('watch', function () {
-  gulp.watch(['generators/**/*.js', 'test/**'], ['test']);
+  gulp.watch(['/**/*.js', 'test/**'], ['test']);
 });
 
 gulp.task('default', ['static', 'test']);

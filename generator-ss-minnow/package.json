@@ -2,24 +2,35 @@
   "name": "generator-ss-minnow",
   "version": "0.1.0",
   "description": "A simple project starter",
-  "homepage": "",
+  "homepage": "https://github.com/n8rzz/ss-minnow/",
   "author": {
     "name": "Nate geslin",
     "email": "teamtomkins23@gmail.com",
-    "url": ""
+    "url": "https://github.com/n8rzz/ss-minnow/"
   },
+  "bugs": [{
+    "url": "https://github.com/n8rzz/ss-minnow/issues"
+  }],
   "files": [
     "generators"
   ],
   "main": "generators/index.js",
   "keywords": [
-    ""
+    "yeoman-generator"
   ],
+  "repository": {
+    "type": "git",
+    "url": "n8rzz/ss-minnow"
+  },
+  "engines": {
+    "node": ">=4.2.4 <=4.3.1",
+    "npm": "2.14.12 <3.0.0"
+  },
   "dependencies": {
     "chalk": "^1.1.1",
     "path": "^0.12.7",
     "yeoman-generator": "^0.22.5",
     "yosay": "^1.1.0"
   },
-  "devDependencies": {}
+  "license": "MIT"
 }
