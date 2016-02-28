@@ -32,7 +32,7 @@ export function assertCondition(condition, message) {
 
 export function assertParameter(condition, message) {
     if (!condition) {
-        throw new TypeError('Error with parameter: ' + message);
+        throw new TypeError(`Error with parameter: ${message}`);
     }
 }
 

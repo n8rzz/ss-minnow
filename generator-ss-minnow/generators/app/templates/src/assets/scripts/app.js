@@ -1,6 +1,3 @@
-import $ from 'jquery-browserify';
-import _ from 'lodash';
-
 /**
  * @class App
  */

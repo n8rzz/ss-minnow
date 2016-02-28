@@ -185,6 +185,11 @@ var App = yeoman.extend({
                 this.templatePath('eslintrc'),
                 this.destinationPath('.eslintrc')
             );
+
+            this.fs.copy(
+                this.templatePath('README.md'),
+                this.destinationPath('README.md')
+            );
         },
 
         editorConfig: function() {

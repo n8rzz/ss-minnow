@@ -1,3 +1,4 @@
+/*eslint-disable */
 'use strict';
 
 module.exports = function(gulp, config) {
@@ -8,6 +9,7 @@ module.exports = function(gulp, config) {
     var sourcemaps = require('gulp-sourcemaps');
     var source = require('vinyl-source-stream');
     var buffer = require('vinyl-buffer');
+    var gutil = require('gulp-util');
     var eslint = require('gulp-eslint');
 
     ////////////////////////////////////////////////////////////////////
@@ -34,11 +36,19 @@ module.exports = function(gulp, config) {
     // ESLINT
     ////////////////////////////////////////////////////////////////////
     gulp.task('lint:scripts', function() {
-        gulp.src([OPTIONS.FILE.JS_SRC_CLIENT])
+        gulp.src([OPTIONS.GLOB.JS])
             .pipe(eslint({
                 useEslintrc: true
             }))
-            .pipe(eslint.format())
+            .pipe(eslint.result(function (result) {
+                    // Called for each ESLint result.
+                    gutil.log('\n');
+                    gutil.log(gutil.colors.cyan('ESLint result: ' + result.filePath));
+                    gutil.log('# Warnings: ' + gutil.colors.yellow(result.warningCount));
+                    gutil.log('# Errors: ' + gutil.colors.red(result.errorCount));
+                })
+            )
+            .pipe(eslint.format());
     });
 
 
