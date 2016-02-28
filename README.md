@@ -1,4 +1,4 @@
-# SS-Minnow [![NPM version][npm-image]][npm-url] [![Dependency Status][daviddm-image]][daviddm-url] [![devDependency Status][davidm-dev-image]][davidm-dev-url]
+# SS-Minnow [![NPM version][npm-image]][npm-url] [![Dependency Status][daviddm-image]][daviddm-url] [![devDependency Status][davidm-dev-image]][davidm-dev-url] [![Build Status](https://travis-ci.org/n8rzz/ss-minnow.svg?branch=master)](https://travis-ci.org/n8rzz/ss-minnow)
 > A client-side boilerplate ready for development with Gulp, SASS, ES6, Jasmine, Karma, ESlint, Sass-Lint and YUIDoc.
 
 ## Pre-Installation
