@@ -1,8 +1,6 @@
 // ---------------------------------------------------------------------
-// Buttons
+// Button
 // ---------------------------------------------------------------------
-@import 'btnAsLink';
-
 .btn {
     @include border-box;
     @include transition(all, 0.12s);
@@ -12,43 +10,17 @@
     padding: 8px 16px;
     border: 0;
     background: rgba(0, 128, 0, 1);
-    color: #eeeeee; /* fallback for non rgba browsers */
+    color: #eeeeee; // fallback for non rgba browsers
     color: rgba(255, 255, 255, 0.9);
     font-size: $BASE_FONT_SIZE;
     font-family: $FONT;
-    line-height: normal; /* set to normal to .btn can be usd on inputs in firefox with consistency */
+    line-height: normal; // set to normal so .btn can be usd on inputs in firefox with consistency
     text-align: center;
     text-decoration: none;
-    // text-transform: uppercase;
     cursor: pointer;
     border-radius: 6px;
 }
 
 .btn:hover {
     background: rgba(0, 100, 0, 0.7);
-}
-
-.btn-sm {
-    padding: 4px 12px;
-    font-size: $BASE_FONT_SIZE - 2px;
-}
-
-.btn_disabled {
-    color: #666666; /* fallback for non rgba browsers */
-    color: rgba(0, 0, 0, 0.3);
-    background: #cccccc !important; /* override hovers - disabled buttons don't have hover states */
-}
-
-.btn_block {
-    width: 100%;
-    display: block;
-    text-align: center;
-}
-
-.mix-btn_alert {
-    background: #d53b3b;
-}
-
-.mix-btn_alert:hover {
-    background: $COLOR_ALERT;
 }

@@ -45,6 +45,7 @@ describe('generator-ss-minnow:app', function () {
                 'karma-coverage.conf.js',
                 'karma-tdd.conf.js',
                 'karma.conf.js',
+                'README.md',
                 'sass-lint.yml'
             ]);
         });
@@ -96,6 +97,7 @@ describe('generator-ss-minnow:app', function () {
                 'karma-coverage.conf.js',
                 'karma-tdd.conf.js',
                 'karma.conf.js',
+                'README.md',
                 'sass-lint.yml'
             ]);
         });
